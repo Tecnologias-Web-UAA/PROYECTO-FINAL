@@ -34,9 +34,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/@cristobal-rivera/scripts/vendor/fontawesome-free/css/all.min.css",
+              "src/assets/css/sb-admin-2.min.css"
             ],
             "scripts": [
+              "node_modules/@cristobal-rivera/scripts/vendor/jquery/jquery.min.js",
+              "node_modules/@cristobal-rivera/scripts/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "node_modules/@cristobal-rivera/scripts/vendor/jquery-easing/jquery.easing.min.js",
+              "node_modules/@cristobal-rivera/scripts/js/sb-admin-2.js",
+              "node_modules/@cristobal-rivera/scripts/vendor/chart.js/Chart.min.js",
+              "node_modules/@cristobal-rivera/scripts/js/demo/chart-area-demo.js",
+              "node_modules/@cristobal-rivera/scripts/js/demo/chart-pie-demo.js" 
             ]
           },
           "configurations": {

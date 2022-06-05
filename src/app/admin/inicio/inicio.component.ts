@@ -3,13 +3,15 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.scss','../../css/sb-admin-2.min.css','../../scripts/vendor/fontawesome-free/css/all.min.css']
+  styleUrls: ['./inicio.component.scss']
 })
 export class InicioComponent implements OnInit {
-
+  band:Boolean=false;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  click(){
+    this.band==false?this.band=true:this.band=false;
+  }
 }
