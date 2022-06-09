@@ -6,19 +6,21 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './admin/inicio/inicio.component';
-
+import { AccesibilidadService } from './shared/accesibilidad.service';
+import { SignupComponent } from './signup/signup.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    InicioComponent
+    InicioComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AccesibilidadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AccesibilidadService } from 'src/app/shared/accesibilidad.service';
 @Component({
   selector: 'app-inicio',
   templateUrl: './inicio.component.html',
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InicioComponent implements OnInit {
   band:Boolean=false;
-  constructor() { }
+  constructor(public accesibilidad:AccesibilidadService) { }
 
   ngOnInit(): void {
   }
