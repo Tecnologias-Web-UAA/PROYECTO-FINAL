@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AccesibilidadService {
   usuario!:number;
+  band:Boolean=true;
   font_size:number=20;
   font_h!:string;
   font_p!:string;
@@ -85,6 +86,9 @@ export class AccesibilidadService {
   escalaGris(){
    this.cont==false?this.cont=true:this.cont=false;   
    this.guardarConf();
+  }
+  changeBand(){
+    this.band==true?this.band=false:this.band=true;
   }
 }
 

@@ -1,6 +1,5 @@
 <body class="bg-gradient-primary" [ngClass]="{grises:accesibilidad.cont}">
-<app-navbar></app-navbar>
-
+<app-navbar *ngIf="accesibilidad.band"></app-navbar>
 
 <div>
     <router-outlet></router-outlet>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccesibilidadService } from '../shared/accesibilidad.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accesibilidad:AccesibilidadService) { 
+    if(this.accesibilidad.band==false)
+    this.accesibilidad.changeBand();
+  }
 
   ngOnInit(): void {
   }

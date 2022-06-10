@@ -7,5 +7,9 @@ import { AccesibilidadService } from './shared/accesibilidad.service';
 })
 export class AppComponent {
   title = 'TiendaElectronica';
-  constructor(public accesibilidad:AccesibilidadService){}
+  band:Boolean=true;
+  constructor(public accesibilidad:AccesibilidadService){
+   
+  }
+ 
 }

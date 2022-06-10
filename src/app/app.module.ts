@@ -8,6 +8,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './admin/inicio/inicio.component';
 import { AccesibilidadService } from './shared/accesibilidad.service';
 import { SignupComponent } from './signup/signup.component';
+import {AngularFireModule} from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +22,10 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    FormsModule
   ],
   providers: [AccesibilidadService],
   bootstrap: [AppComponent]
