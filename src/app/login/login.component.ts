@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   logIn(){
+    this.router.navigate(['/loading']);
     let {correo,contrasena}=this.myForm.value;
     this.auth.signIn(correo,contrasena).then((res)=>{
       if(res){
@@ -28,5 +29,9 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/inicioAdmin']);
       }
     });
+  }
+  logInGoogle(){
+    this.router.navigate(['/loading']);
+    this.auth.GoogleAuth();
   }
 }

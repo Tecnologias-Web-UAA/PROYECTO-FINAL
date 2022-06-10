@@ -1,5 +1,5 @@
 	
-function nobackbutton(){
+
     	
        window.location.hash="no-back-button";
     	
@@ -7,4 +7,6 @@ function nobackbutton(){
     	
        window.onhashchange=function(){window.location.hash="no-back-button";}
     	
-}
+       window.onbeforeunload = function() {
+              return "¿Estás seguro que deseas salir de la actual página?"
+          }

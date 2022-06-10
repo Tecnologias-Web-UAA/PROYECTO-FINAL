@@ -26,7 +26,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form class="user" [formGroup]="myForm" (ngSubmit)="logIn()">
+                                    <form class="user" [formGroup]="myForm" >
                                         <div class="form-group">
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['email']">Correo invalido</p>
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['required']">El campo no puede quedar vacio</p>
@@ -49,13 +49,13 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button  class="btn btn-primary btn-user btn-block" [disabled]="myForm.invalid">
+                                        <button  class="btn btn-primary btn-user btn-block" [disabled]="myForm.invalid" (click)="logIn()">
                                             Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <button class="btn btn-google btn-user btn-block" (click)="logInGoogle()">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
+                                        </button>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                                         </a>
