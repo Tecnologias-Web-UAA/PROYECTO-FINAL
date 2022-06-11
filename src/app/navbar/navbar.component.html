@@ -1,34 +1,50 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">
+      <img id="logo" src="assets/img/logotipo.png" alt="" width="50px" >     
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item active" routerLinkActive="active">
           <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/sign-in']">SIGN IN</a>
+        <li class="nav-item" routerLinkActive="active">
+          <a class="nav-link" [routerLink]="['/sign-in']">Log In</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+       
+          <div class="dropdown " id="drop">
+
+            <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false"><i class="icon-disability"></i></button>
+      
+            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" style="background: #b4bdff;"
+              (click)="accesibilidad.stop($event)">
+              <a class="dropdown-item" (click)="accesibilidad.aumentarFont()">Aumentar texto
+                <i class="icon-zoom-in"></i>
+              </a>
+              <a class="dropdown-item" (click)="accesibilidad.disminuirFont()">Disminuir texto
+                <i class="icon-search-minus"></i>
+      
+              </a>
+              <a class="dropdown-item" (click)="accesibilidad.escalaGris()">Escala de grises
+      
+                <i class="icon-contrast"></i>
+              </a>
+              <a class="dropdown-item" (click)="accesibilidad.cambiarFont()">Cambiar fuente
+      
+                <i class="icon-refresh"></i>
+              </a>
+      
+            </div>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
-        </li>
+     
+     
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

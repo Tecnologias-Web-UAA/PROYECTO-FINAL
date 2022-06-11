@@ -8,7 +8,7 @@ import { AccesibilidadService } from '../shared/accesibilidad.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private accesibilidad:AccesibilidadService) { 
+  constructor(public accesibilidad:AccesibilidadService) { 
     if(this.accesibilidad.band==false)
     this.accesibilidad.changeBand();
   }

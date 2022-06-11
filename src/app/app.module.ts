@@ -13,6 +13,7 @@ import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 import { LoadingComponent } from './loading/loading.component';
 import { AdministradorModule } from './administrador/administrador.module';
 import { HomeComponent } from './home/home.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     NavbarComponent,
     SignupComponent,
     LoadingComponent,
-    HomeComponent
+    HomeComponent,
+    ContactoComponent
   ],
   imports: [
     BrowserModule,

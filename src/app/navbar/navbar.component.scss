@@ -3,3 +3,31 @@
      border-bottom: 5px solid;
    
 }
+#logo{
+    border: 5px double;
+    border-radius: 50%;
+}
+//accesibilidad
+[class^="icon-"]{
+    font-size: 40px;
+    color:black;
+}
+a{
+    cursor: pointer;
+}
+
+.dropdown-item:hover{
+    background: rgb(145, 228, 145);
+}
+.dropdown a{
+    font-weight: 800;    
+    font-style: italic;
+
+}
+.dropdown-menu i{
+    font-size: 30px;
+}
+/////termina accesibilidad
+li a{
+    font-size: 1.5em;
+}
