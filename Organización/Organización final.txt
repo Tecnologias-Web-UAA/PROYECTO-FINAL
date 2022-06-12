@@ -1,0 +1,51 @@
+VIDEO CORTO
+3-Proyecto en firebase hosting
+5-Presentación de proyecto (logo, etc)
+6.1-Funcionalidad del proyecto, sus 3 opciones y diseño 
+	Altas, bajas, cambios y consultas en firebase
+PRODUCTOS 
+ID, NOMBRE, PRECIO, DISPONIBLES
+
+USUARIOS
+ID, USUARIO, PRIVILEGIOS
+
+VENTAS
+PRODUCTO, MES DE VENTA, GANANCIA
+
+INVENTARIO
+ID, NOMBRE, PRECIO, DISPONIBLES 
+
+6.2 y 6.3-Usuarios normales y administradores
+7-Diseño responsivo
+8-Formulario de contacto
+9-Accesibilidad web
+10-PWA en el proyecto
+11-Login por MSG de firebase
+12-Generar codigo QR
+PDF Hoja 2 punto 9 - formulario de contacto 
+PDF Hoja 3 punto 17-instalar icono en celular para sitio web
+
+VIDEO LARGO
+-Mostrar mensajes de error y validaciones  (generando nosotros el error)
+-Uso de pipes
+-Mostrar un loading
+-Uso de graficas de las consultas
+
+
+LUIS:
+Login de usuario normal y usuario administrador (Falta agregar lo del login por MSG)
+Formulario de contacto y envío a correo electrónico 
+Presentación pagina principal proyecto
+Hacer pdf 
+
+CRIS:
+Accesibilidad web
+PWA
+Peticiones a base de datos
+Diseño de admin
+
+JUCA:
+Graficas 
+Codigo QR
+Diseño de usuario logeado
+Pipes 
