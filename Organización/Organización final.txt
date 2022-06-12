@@ -47,5 +47,5 @@ Diseño de admin
 JUCA:
 Graficas 
 Codigo QR
-Diseño de usuario logeado
+Diseño de usuario logueado
 Pipes 
