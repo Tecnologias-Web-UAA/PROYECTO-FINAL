@@ -7,6 +7,9 @@ import { AngularFireStorage} from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs/internal/Observable';
 import { finalize } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth.service';
+import { PeticionesService } from 'src/app/shared/peticiones.service';
+import { Compra } from 'src/app/modelos/compra.model';
+
 @Component({
   selector: 'app-altas',
   templateUrl: './altas.component.html',
@@ -23,13 +26,16 @@ export class AltasComponent implements OnInit {
   @ViewChild("foto", {
     read: ElementRef
   }) foto!: ElementRef;
-  constructor(private producto:ProductoService,private storage:AngularFireStorage,private auth:AuthService) {
+  constructor(private producto:ProductoService,private storage:AngularFireStorage,
+    private auth:AuthService,public peticionesService:PeticionesService) {
     this.myForm=new FormGroup({
       'nombre':new FormControl('',[Validators.required,Validators.minLength(2)]),
       'descripcion':new FormControl('',[Validators.required]),
       'precio':new FormControl('',[Validators.required]),
       'cantidad':new FormControl('',[Validators.required]),
+      'fecha':new FormControl('',[Validators.required]),
       'imagen':new FormControl('',[Validators.required])
+      
     });
    }
 
@@ -42,7 +48,8 @@ export class AltasComponent implements OnInit {
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath,this.file);
     this.porcentaje = task.percentageChanges();
-    
+    //metodo para capturar el momento exactp de cuando nuestra imagen se subio al storage de firebase
+    //ya que si no se hace esto puede que surjan errores al subir los datos a firestore
     task.snapshotChanges().pipe(
                 finalize(() => {
                     ref.getDownloadURL().subscribe(downloadURL => {
@@ -51,8 +58,23 @@ export class AltasComponent implements OnInit {
                         this.myForm.value.imagen=this.dirImagen;
                         this.band=false;
                         this.producto.addProduct(this.myForm.value);
-                        this.myForm.reset();
+                        
                         this.imageUrl='../../../assets/img/upload.png';
+                        //Una alta significa que compramos, por lo que agregamos tambien a compras
+                        let compra:Compra={
+                          id: id,
+                          descripcion:this.myForm.value.descripcion,
+                          nombre: this.myForm.value.nombre,
+                          precio_unitario: this.myForm.value.precio,
+                          cantidad: this.myForm.value.cantidad,
+                          imagen:this.dirImagen,
+                          fecha:this.myForm.value.fecha,
+                          total:this.myForm.value.cantidad*this.myForm.value.precio
+                        };
+                        this.peticionesService.altas(compra).subscribe(res=>{
+                          console.log('compra alta '+res)
+                        });
+                        this.myForm.reset();
                     });
               })
           )
@@ -77,4 +99,5 @@ export class AltasComponent implements OnInit {
   click(){
     this.bandera==false?this.bandera=true:this.bandera=false;
   }
+
 }

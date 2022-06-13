@@ -17,6 +17,7 @@ export class AuthService {
         if (user) {
           user.email !== null ? (this.userData = user?.email): (this.userData = user?.phoneNumber);
           this.ngZone.run(() => {
+           
             this.router.navigate(['/inicioAdmin']);
           });
         } else {

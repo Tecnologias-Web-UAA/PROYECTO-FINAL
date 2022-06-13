@@ -11,6 +11,9 @@ import { EditarProductoComponent } from './editar-producto/editar-producto.compo
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { TopbarComponent } from './topbar/topbar.component';
+import { PeticionesService } from '../shared/peticiones.service';
+import {HttpClientModule} from '@angular/common/http';
+ 
 @NgModule({
   declarations: [
     InicioComponent,
@@ -26,7 +29,9 @@ import { TopbarComponent } from './topbar/topbar.component';
     ReactiveFormsModule,
     AngularFireStorageModule,
     AngularFireModule,
-    AppRoutingModule
-  ]
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  providers:[PeticionesService]
 })
 export class AdministradorModule { }

@@ -14,7 +14,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { AdministradorModule } from './administrador/administrador.module';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
-
+import {HttpClientModule} from '@angular/common/http';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ContactoComponent } from './contacto/contacto.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
-    AdministradorModule
+    AdministradorModule,
+    HttpClientModule
   ],
   providers: [AccesibilidadService],
   bootstrap: [AppComponent]
