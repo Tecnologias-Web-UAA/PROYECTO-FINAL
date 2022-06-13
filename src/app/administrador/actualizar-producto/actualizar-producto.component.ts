@@ -12,9 +12,11 @@ import { ProductoService } from 'src/app/shared/producto.service';
 export class ActualizarProductoComponent implements OnInit {
   myForm!:FormGroup;
  products!:Producto[];
-  constructor(private producto:ProductoService,private router:Router) { 
+ band:boolean=false;
+  constructor(private productoService:ProductoService,private router:Router) { 
     this.myForm=new FormGroup({
       'nombre':new FormControl('',[Validators.required,Validators.minLength(2)]),
+      'descripcion':new FormControl(''),
       'precio':new FormControl('',[Validators.required]),
       'cantidad':new FormControl('',[Validators.required]),
       'imagen':new FormControl('',[Validators.required])
@@ -22,12 +24,18 @@ export class ActualizarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    this.producto.getProducts().subscribe(products =>{
+    this.productoService.getProducts().subscribe(products =>{
       this.products = products;
     });
   }
   update(id:string|undefined){
     console.log(id);
     this.router.navigate(['editarProducto',id]);
+  }
+  click(){
+    this.band==false?this.band=true:this.band=false;
+  }
+  eliminar(product:Producto){
+    this.productoService.deleteProduct(product);
   }
 }

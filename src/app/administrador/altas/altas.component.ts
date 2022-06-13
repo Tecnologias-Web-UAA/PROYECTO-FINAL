@@ -26,6 +26,7 @@ export class AltasComponent implements OnInit {
   constructor(private producto:ProductoService,private storage:AngularFireStorage,private auth:AuthService) {
     this.myForm=new FormGroup({
       'nombre':new FormControl('',[Validators.required,Validators.minLength(2)]),
+      'descripcion':new FormControl('',[Validators.required]),
       'precio':new FormControl('',[Validators.required]),
       'cantidad':new FormControl('',[Validators.required]),
       'imagen':new FormControl('',[Validators.required])

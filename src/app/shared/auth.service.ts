@@ -21,7 +21,7 @@ export class AuthService {
           });
         } else {
           this.userData = null;
-          this.router.navigate(['/']);
+          this.router.navigate(['/sign-in']);
           
         }
       });
@@ -74,5 +74,8 @@ export class AuthService {
     return this.afauth.signInWithPopup(provider).catch((error) => {
         window.alert(error);
       });
+  }
+  isLogged(){
+    return
   }
 }
