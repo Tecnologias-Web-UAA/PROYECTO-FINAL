@@ -6,6 +6,7 @@ import { argv } from 'process';
 import { AngularFireStorage} from '@angular/fire/compat/storage';
 import { Observable } from 'rxjs/internal/Observable';
 import { finalize } from 'rxjs';
+import { AuthService } from 'src/app/shared/auth.service';
 @Component({
   selector: 'app-altas',
   templateUrl: './altas.component.html',
@@ -14,6 +15,7 @@ import { finalize } from 'rxjs';
 export class AltasComponent implements OnInit {
   myForm!:FormGroup;
   band:boolean=false;
+  bandera:boolean=false;
   porcentaje!:Observable<number|any>;
   dirImagen!:string;
   file!:any;
@@ -21,7 +23,7 @@ export class AltasComponent implements OnInit {
   @ViewChild("foto", {
     read: ElementRef
   }) foto!: ElementRef;
-  constructor(private producto:ProductoService,private storage:AngularFireStorage) {
+  constructor(private producto:ProductoService,private storage:AngularFireStorage,private auth:AuthService) {
     this.myForm=new FormGroup({
       'nombre':new FormControl('',[Validators.required,Validators.minLength(2)]),
       'precio':new FormControl('',[Validators.required]),
@@ -40,7 +42,7 @@ export class AltasComponent implements OnInit {
     const task = this.storage.upload(filePath,this.file);
     this.porcentaje = task.percentageChanges();
     
-      task.snapshotChanges().pipe(
+    task.snapshotChanges().pipe(
                 finalize(() => {
                     ref.getDownloadURL().subscribe(downloadURL => {
                       this.dirImagen=downloadURL;
@@ -70,5 +72,8 @@ export class AltasComponent implements OnInit {
       this.imageUrl = reader.result as string;
     
     reader.readAsDataURL(this.file);
+  }
+  click(){
+    this.bandera==false?this.bandera=true:this.bandera=false;
   }
 }

@@ -14,7 +14,7 @@ export class InicioComponent implements OnInit {
 
   ngOnInit(): void {
    this.getEmail();
-   this.router.navigate(['/altas']);
+  //  this.router.navigate(['/altas']);
   }
   click(){
     this.band==false?this.band=true:this.band=false;

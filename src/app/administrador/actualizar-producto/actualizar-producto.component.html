@@ -1,0 +1,14 @@
+<div class="card-columns">
+    <div class="card" *ngFor="let product of products">
+      <img src="{{product.imagen}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{product.nombre}}</h5>
+        <h2>Existencia: {{product.cantidad}}</h2>
+        <h2>Precio: {{product.precio}}</h2>
+        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <button type="button" class="btn btn-danger" (click)="update(product.id)">Editar</button>
+      </div>
+    </div>
+   
+    
+  </div>

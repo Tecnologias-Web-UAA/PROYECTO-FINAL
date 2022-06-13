@@ -19,11 +19,17 @@ export class ProductoService {
     const data = {id,...producto};
     this.productsRef.doc(id).set(data);
   }
-
+  updateProduct(producto:Producto){
+    
+    this.firestore.collection('producto').doc(producto.id).update(producto);
+  }
   getProducts(){
     return this.products;
   }
-
+  getProduct(myid:string){
+     this.firestore.collection('producto').doc(myid).get().subscribe(res=>console.log(res));
+    return this.firestore.collection<Producto>('producto').doc(myid).valueChanges();
+  }
   //Función para eliminar un documento existente.
   deleteProduct(producto: Producto){
     this.firestore.collection('producto').doc(producto.id).delete();
