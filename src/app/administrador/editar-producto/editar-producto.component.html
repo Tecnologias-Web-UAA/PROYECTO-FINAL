@@ -5,7 +5,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-       <app-navbar-admin  [band]="bandera"></app-navbar-admin>
+       <app-navbar-admin  [band]="!bandera"></app-navbar-admin>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -40,7 +40,7 @@
                                 <span>Descripción</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <input type="text" class="form-control" formControlName="descripcion" >
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="descripcion"></textarea>
                             </div>
                             </div>
                         <div class="row mt-2">

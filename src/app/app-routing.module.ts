@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActualizarProductoComponent } from './administrador/actualizar-producto/actualizar-producto.component';
 import { AltasComponent } from './administrador/altas/altas.component';
+import { ConsultaComprasComponent } from './administrador/consulta-compras/consulta-compras.component';
 import { ConsultaProductosComponent } from './administrador/consulta-productos/consulta-productos.component';
 import { EditarProductoComponent } from './administrador/editar-producto/editar-producto.component';
 import { InicioComponent } from './administrador/inicio/inicio.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {'path':'actualizarProducto',component:ActualizarProductoComponent},
   {'path':'editarProducto/:id',component:EditarProductoComponent},
   {'path':'navbarAdmin',component:NavbarComponent},
+  {'path':'consultaCompras',component:ConsultaComprasComponent},
   
 
 ];

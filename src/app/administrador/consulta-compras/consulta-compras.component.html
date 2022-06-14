@@ -20,20 +20,22 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                  <h2 style="text-align: center;">Inventario Disponible</h2>
+                  <h2 style="text-align: center;">Compras Realizadas</h2>
                   <div class="card-columns">
-                    <div class="card" *ngFor="let product of products">
-                      <img src="{{product.imagen}}" class="card-img-top" alt="...">
+                    <div class="card" *ngFor="let compra of compras">
+                      <img src="{{compra.imagen}}" class="card-img-top" alt="...">
                       <div class="card-body">
-                        <h2 class="card-title">{{product.nombre}}</h2>
-                        <h5>Existencia: {{product.cantidad}}</h5>
-                        <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
-                        <p class="card-text"> {{product.descripcion}}</p>
+                        <h2 class="card-title">{{compra.nombre}}</h2>
+                        <h5>Adquiridos: {{compra.cantidad}}</h5>
+                        <h5>Precio Unitario: ${{compra.precio_unitario | number: '.0-3'}}</h5>
+                        <h5>Pago: ${{compra.total | number: '.0-3'}}</h5>
+                        <h5>Fecha: {{compra.fecha}}</h5>
+                        <p class="card-text"> {{compra.descripcion}}</p>
                         </div>
                         <hr class="sidebar-divider my-0">
                         <div class="foot">
-                        <button type="button" class="btn btn-info" (click)="update(product.id)">Editar</button>
-                        <button type="button" class="btn btn-danger " (click)="eliminar(product)">Eliminar</button>
+                        <button type="button" class="btn btn-info" (click)="update(compra.id)">Editar</button>
+                        <button type="button" class="btn btn-danger " (click)="eliminar(compra)">Eliminar</button>
                       </div>
                     </div>
                    
