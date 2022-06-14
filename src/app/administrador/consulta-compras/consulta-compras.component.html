@@ -22,7 +22,7 @@
                 <div class="container-fluid">
                   <h2 style="text-align: center;">Compras Realizadas</h2>
                   <div class="card-columns">
-                    <div class="card" *ngFor="let compra of compras">
+                    <div class="card" *ngFor="let compra of compras;let i=index">
                       <img src="{{compra.imagen}}" class="card-img-top" alt="...">
                       <div class="card-body">
                         <h2 class="card-title">{{compra.nombre}}</h2>
@@ -34,8 +34,8 @@
                         </div>
                         <hr class="sidebar-divider my-0">
                         <div class="foot">
-                        <button type="button" class="btn btn-info" (click)="update(compra.id)">Editar</button>
-                        <button type="button" class="btn btn-danger " (click)="eliminar(compra)">Eliminar</button>
+                        <button type="button" class="btn btn-info" (click)="update(id_doc[i])">Editar</button>
+                        <button type="button" class="btn btn-danger " (click)="eliminar(id_doc[i])">Eliminar</button>
                       </div>
                     </div>
                    
