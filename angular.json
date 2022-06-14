@@ -42,10 +42,7 @@
               "node_modules/@cristobal-rivera/scripts/vendor/jquery/jquery.min.js",
               "node_modules/@cristobal-rivera/scripts/vendor/bootstrap/js/bootstrap.bundle.min.js",
               "node_modules/@cristobal-rivera/scripts/vendor/jquery-easing/jquery.easing.min.js",
-              "node_modules/@cristobal-rivera/scripts/js/sb-admin-2.js",
-              "node_modules/jquery/dist/jquery.slim.min.js",
-              "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"   
+              "node_modules/@cristobal-rivera/scripts/js/sb-admin-2.js"  
             ]
           },
           "configurations": {

@@ -49,6 +49,22 @@
     background: rgb(145, 228, 145);
 }
 
+//cards responsivos
+/* .card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 5;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 4;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 3;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 2;
+    }
+} */
+
 //fonts
 @font-face {
     font-family: 'Affichage';
