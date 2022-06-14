@@ -13,6 +13,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { TopbarComponent } from './topbar/topbar.component';
 import { PeticionesService } from '../shared/peticiones.service';
 import {HttpClientModule} from '@angular/common/http';
+import { ConsultaComprasComponent } from './consulta-compras/consulta-compras.component';
  
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     ActualizarProductoComponent,
     EditarProductoComponent,
     NavbarAdminComponent,
-    TopbarComponent
+    TopbarComponent,
+    ConsultaComprasComponent
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/producto.model';
-
+import swal from 'sweetalert2';
 import { ProductoService } from 'src/app/shared/producto.service';
 @Component({
   selector: 'app-actualizar-producto',
@@ -24,8 +24,15 @@ export class ActualizarProductoComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando...",
+      text: "Espere por favor",
+    });
+    swal.showLoading();
     this.productoService.getProducts().subscribe(products =>{
       this.products = products;
+      swal.close();
     });
   }
   update(id:string|undefined){

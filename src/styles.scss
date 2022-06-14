@@ -86,3 +86,23 @@
     font-family: 'Sporty';
     src: url("assets/fonts/sporty-vista/SPORTY\ VISTA.otf");
 }
+
+.foot{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+button{
+    margin-left: 0.5em;
+    width: 150px;
+}
+@media only screen and(max-width:830px) {
+    .foot{
+       flex-wrap: wrap;
+        
+    }
+    button{
+        margin-top: 0.5em;
+        width: 150px;
+    }
+}

@@ -71,7 +71,7 @@ export class AltasComponent implements OnInit {
                           fecha:this.myForm.value.fecha,
                           total:this.myForm.value.cantidad*this.myForm.value.precio
                         };
-                        this.peticionesService.altas(compra).subscribe(res=>{
+                        this.peticionesService.altas(compra,'altaCompra/compras').subscribe(res=>{
                           console.log('compra alta '+res)
                         });
                         this.myForm.reset();
