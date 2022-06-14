@@ -21,7 +21,13 @@
     "@angular/router": "~13.2.0",
     "@cristobal-rivera/scripts": "^1.0.0",
     "@firebase/auth": "^0.20.3",
+    "angular2-qrcode": "^2.0.3",
+    "bootstrap": "^4.6.1",
+    "chart.js": "^3.8.0",
     "firebase": "^9.8.3",
+    "jquery": "^3.5.1",
+    "ng2-charts": "^3.0.11",
+    "popper.js": "^1.16.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

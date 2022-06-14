@@ -15,7 +15,9 @@ import { AdministradorModule } from './administrador/administrador.module';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import {HttpClientModule} from '@angular/common/http';
- 
+import { UsuarioModule } from './usuario/usuario.module';
+import { FAQComponent } from './faq/faq.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import {HttpClientModule} from '@angular/common/http';
     SignupComponent,
     LoadingComponent,
     HomeComponent,
-    ContactoComponent
+    ContactoComponent,
+    FAQComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import {HttpClientModule} from '@angular/common/http';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
     AdministradorModule,
-    HttpClientModule
+    HttpClientModule,
+    UsuarioModule
   ],
   providers: [AccesibilidadService],
   bootstrap: [AppComponent]

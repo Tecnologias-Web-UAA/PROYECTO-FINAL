@@ -12,6 +12,8 @@ import { LoadingComponent } from './loading/loading.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
+import { InicioUserComponent } from './usuario/inicio-user/inicio-user.component';
+import { FAQComponent } from './faq/faq.component';
 
 const routes: Routes = [
   {'path':'sign-up',component:SignupComponent},
@@ -27,6 +29,8 @@ const routes: Routes = [
   {'path':'actualizarProducto',component:ActualizarProductoComponent},
   {'path':'editarProducto/:id',component:EditarProductoComponent},
   {'path':'navbarAdmin',component:NavbarComponent},
+  {'path':'inicioUser',component:InicioUserComponent},
+  {'path':'faq',component:FAQComponent},
   
 
 ];
