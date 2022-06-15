@@ -4,8 +4,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-      <!--  <app-navbar-user  [band]="band"></app-navbar-user> -->
-      <app-navbar-user [band]="band"></app-navbar-user>
+        <app-navbar-user [band]="band"></app-navbar-user>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -16,12 +15,40 @@
 
                 <!-- Topbar -->
                 <app-navbar-top-user (emitBand)="click()"></app-navbar-top-user>
-
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                  <h2 style="text-align: center;">Productos De Electronica Halcón</h2>
+                  <div class="card-columns">
+                    <div class="card" *ngFor="let product of products">
+                      <img src="{{product.imagen}}" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h2 class="card-title">{{product.nombre}}</h2>
+                        <h5>Existencia: {{product.cantidad}}</h5>
+                        <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
+                        <p class="card-text"> {{product.descripcion}}</p>
+                        </div>
+                        <hr class="sidebar-divider my-0">
+                        <div class="foot">
+                        <button type="button" class="btn btn-info" (click)="comprar(product.id)">Comprar</button>
+                        <button type="button" class="btn btn-danger" (click)="clickqr(product.id)">Generar QR del producto</button>
+                      </div>
+                    </div>
+                   
+                    
+                  </div>
+                
+                
+                    <!-- Page Heading -->
+                    
+                    <!-- Content Row -->
+                  
+                    <!-- Content Row -->
 
+                    
+                    <!-- Content Row -->
+             
                 </div>
                 <!-- /.container-fluid -->
 

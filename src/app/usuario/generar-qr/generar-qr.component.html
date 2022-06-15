@@ -1,3 +1,4 @@
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -20,7 +21,17 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid cent">
+
+                    <div class="qr">
+                        <p>{{ nombreprod | capitalizado:true }}</p>
+
+                        <qr-code [size]="size" [background]="fondo" [foreground]="colorqr" [value]="qrInformacion"></qr-code>
+
+                        <hr>
+                        <a class="nav-link" [routerLink]="['/inicioAdmin']">regresar</a>
+                        <hr>
+                    </div>
 
                 </div>
                 <!-- /.container-fluid -->

@@ -22,4 +22,9 @@ export class PeticionesService {
     let params = new HttpParams().set('coleccion', coleccion);
     return this.http.get(`${this.ruta}/${path}/${coleccion}`);
   }
+
+  qrangular(id:any){
+    return this.http.get(`${this.ruta}/consultarqr/${id}`);
+  }
+
 }
