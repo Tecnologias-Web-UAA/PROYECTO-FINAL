@@ -3,6 +3,7 @@ import { FormControl,FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccesibilidadService } from '../shared/accesibilidad.service';
 import { AuthService } from '../shared/auth.service';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -21,17 +22,36 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
   logIn(){
-    this.router.navigate(['/loading']);
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando...",
+      text: "Espere por favor",
+    });
+    swal.showLoading();
     let {correo,contrasena}=this.myForm.value;
     this.auth.signIn(correo,contrasena).then((res)=>{
       if(res){
-      this.accesibilidad.changeBand();
-      this.router.navigate(['/inicioAdmin']);
+        this.accesibilidad.changeBand();
+        this.router.navigate(['/inicioAdmin']);
+        swal.close();
       }
     });
   }
   logInGoogle(){
-    this.router.navigate(['/loading']);
-    this.auth.GoogleAuth();
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando...",
+      text: "Espere por favor",
+    });
+    swal.showLoading();
+   
+    this.auth.GoogleAuth().then((res: any) => {
+      if (res) {
+        this.accesibilidad.changeBand();
+   
+        this.router.navigate(['/inicioAdmin']);
+        swal.close();
+      }
+    });;
   }
 }

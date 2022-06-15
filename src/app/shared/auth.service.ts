@@ -61,13 +61,7 @@ export class AuthService {
 
   // Iniciar Sesión con Google
   GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      if (res) {
-        this.accesibilidad.changeBand();
-   
-        this.router.navigate(['/inicioAdmin']);
-      }
-    });
+    return this.AuthLogin(new auth.GoogleAuthProvider());
   }
   /* Lógica Auth para registro con proveedores 
   en este caso el proovedor recibido como parámetro es (Google)*/

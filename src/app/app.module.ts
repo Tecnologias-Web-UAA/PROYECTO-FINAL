@@ -10,7 +10,6 @@ import { SignupComponent } from './signup/signup.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { LoadingComponent } from './loading/loading.component';
 import { AdministradorModule } from './administrador/administrador.module';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
@@ -24,7 +23,6 @@ import { FAQComponent } from './faq/faq.component';
     LoginComponent,
     NavbarComponent,
     SignupComponent,
-    LoadingComponent,
     HomeComponent,
     ContactoComponent,
     FAQComponent,
