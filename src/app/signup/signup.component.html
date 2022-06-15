@@ -37,12 +37,20 @@
                                                 placeholder="Enter Email Address..." formControlName="correo">
                                         </div>
                                         <div class="form-group">
-                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 5 caracteres)</p>
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="password" class="form-control form-control-user"
                                                 id="exampleInputPassword" placeholder="Password" formControlName="contrasena">
                                         </div>
+                                        <div class="form-group">
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Password" formControlName="contrasena2">
+                                        </div>
+                                        <p *ngIf="checarSiSonIguales()" style="text-align: center; color:red;">Las contraseñas no coinciden</p>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="check">
