@@ -34,6 +34,15 @@ export class ConsultaComprasComponent implements OnInit {
 
   }
   eliminar(id_compra:string){
-    console.log("id: "+id_compra)
+    console.log("id: "+id_compra);
+    this.peticiones.eliminar(`eliminarAlgo/compras/${id_compra}`).subscribe(res=>{
+      console.log(res);
+      this.peticiones.consultaTodo('consultaTodo','compras').subscribe((res:any)=>{
+        this.compras = res.myarray;
+        this.id_doc = res.myids;
+        console.log(this.id_doc);
+        
+      });
+    });
   }
 }
