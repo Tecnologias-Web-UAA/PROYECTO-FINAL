@@ -1,3 +1,4 @@
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -20,8 +21,30 @@
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
-
+                <div class="container-fluid cent">
+                    <h2 style="text-align: center;">Productos De Electronica Halcón</h2>
+                    <div class="row">
+                        <div class="col-12 card-qr">
+                            <div class="contenedorProd">
+                                <div class="prod">
+                                    <img src="{{product.imagen}}" class="card-img-top" alt="...">
+                                    <h2 class="card-title">{{product.nombre | capitalizado:true}}</h2>
+                                    <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="sidebar-divider my-0">
+                    <div class="row cent">
+                        <div class="col-12">
+                            <div class="qr">
+                                <qr-code [size]="size" [background]="fondo" [foreground]="colorqr" [value]="qrInformacion"></qr-code>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                        <a class="nav-link back" [routerLink]="['/compras']">Regresar</a>
+                    <hr>
                 </div>
                 <!-- /.container-fluid -->
 

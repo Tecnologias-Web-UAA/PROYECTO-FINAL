@@ -14,8 +14,13 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { PeticionesService } from '../shared/peticiones.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ConsultaComprasComponent } from './consulta-compras/consulta-compras.component';
+
 import { EditarCompraComponent } from './editar-compra/editar-compra.component';
  
+
+import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+
+
 @NgModule({
   declarations: [
     InicioComponent,
@@ -26,7 +31,9 @@ import { EditarCompraComponent } from './editar-compra/editar-compra.component';
     NavbarAdminComponent,
     TopbarComponent,
     ConsultaComprasComponent,
-    EditarCompraComponent
+    EditarCompraComponent,
+    CapitalizadoPipe
+
   ],
   imports: [
     CommonModule,

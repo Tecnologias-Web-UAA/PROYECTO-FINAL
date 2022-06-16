@@ -14,7 +14,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { InicioUserComponent } from './usuario/inicio-user/inicio-user.component';
 import { FAQComponent } from './faq/faq.component';
+
 import { EditarCompraComponent } from './administrador/editar-compra/editar-compra.component';
+
+import { ComprasComponent } from './usuario/compras/compras.component';
+import { GenerarQrComponent } from './usuario/generar-qr/generar-qr.component';
+
 
 const routes: Routes = [
   //seccion general...
@@ -37,7 +42,11 @@ const routes: Routes = [
   //seccion User
   {'path':'inicioUser',component:InicioUserComponent},
   {'path':'faq',component:FAQComponent},
-  
+
+  {'path':'consultaCompras',component:ConsultaComprasComponent},
+  {'path':'compras',component:ComprasComponent},
+  {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent}
+
 
 ];
 

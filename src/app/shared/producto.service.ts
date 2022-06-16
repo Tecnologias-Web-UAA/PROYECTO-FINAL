@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductoService {
+  consultarRealProducto() {
+    throw new Error('Method not implemented.');
+  }
   products!: Observable<Producto[]>;
   productsRef!: AngularFirestoreCollection<Producto>;
 
