@@ -29,11 +29,8 @@ export class AuthService {
     }
 
   signIn(correo:string,contrasena:string){
-    return this.afauth.signInWithEmailAndPassword(correo, contrasena)
-    .catch((error) => {
-      window.alert(error.message);
-      this.router.navigate(['/']);
-    });
+    return this.afauth.signInWithEmailAndPassword(correo, contrasena);
+    
   }
   signOut(){
     this.accesibilidad.changeBand();
@@ -66,9 +63,7 @@ export class AuthService {
   /* Lógica Auth para registro con proveedores 
   en este caso el proovedor recibido como parámetro es (Google)*/
   AuthLogin(provider: any) {
-    return this.afauth.signInWithPopup(provider).catch((error) => {
-        window.alert(error);
-      });
+    return this.afauth.signInWithPopup(provider);
   }
   isLogged(){
     return

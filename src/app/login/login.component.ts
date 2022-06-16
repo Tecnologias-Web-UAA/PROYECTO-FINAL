@@ -32,23 +32,35 @@ export class LoginComponent implements OnInit {
   }
   logIn(){
     
-    if(this.myForm.value.check){
-      localStorage.setItem('datosUser',JSON.stringify(this.myForm.value));
-    }
-    // swal.fire({
-    //   allowOutsideClick: false,
-    //   title: "Cargando...",
-    //   text: "Espere por favor",
-    // });
-    // swal.showLoading();
-    // let {correo,contrasena}=this.myForm.value;
-    // this.auth.signIn(correo,contrasena).then((res)=>{
-    //   if(res){
-    //     this.accesibilidad.changeBand();
-    //     this.router.navigate(['/inicioAdmin']);
-    //     swal.close();
-    //   }
-    // });
+  
+    swal.fire({
+      allowOutsideClick: false,
+      title: "Cargando...",
+      text: "Espere por favor",
+    });
+    swal.showLoading();
+    let {correo,contrasena}=this.myForm.value;
+    this.auth.signIn(correo,contrasena).then((res)=>{
+      if(res){
+        this.accesibilidad.changeBand();
+        this.router.navigate(['/inicioAdmin']);
+        if(this.myForm.value.check){
+          localStorage.setItem('datosUser',JSON.stringify(this.myForm.value));
+        }
+        swal.close();
+      }
+    })
+    .catch((error) => {
+      swal.close();
+      swal.fire({
+      allowOutsideClick: true,
+      title: "Error...",
+      text: "Algo salio mal...Revisa tu conexion a internet o que tu contraseña y usuario sean correctos",
+      confirmButtonText:'Entendido'
+    });
+      
+      this.router.navigate(['/sign-in']);
+    });;
   }
   logInGoogle(){
     swal.fire({
@@ -65,6 +77,17 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/inicioAdmin']);
         swal.close();
       }
-    });;
+    })
+    .catch(err=>{
+      swal.close();
+      swal.fire({
+      allowOutsideClick: true,
+      title: "Error...",
+      text: "Algo salio mal...Revisa tu conexion a internet ",
+      confirmButtonText:'Entendido'
+    });
+      
+      this.router.navigate(['/sign-in']);
+    });
   }
 }
