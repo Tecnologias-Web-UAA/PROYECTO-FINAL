@@ -14,7 +14,8 @@ import { TopbarComponent } from './topbar/topbar.component';
 import { PeticionesService } from '../shared/peticiones.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ConsultaComprasComponent } from './consulta-compras/consulta-compras.component';
- 
+import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+
 @NgModule({
   declarations: [
     InicioComponent,
@@ -24,7 +25,8 @@ import { ConsultaComprasComponent } from './consulta-compras/consulta-compras.co
     EditarProductoComponent,
     NavbarAdminComponent,
     TopbarComponent,
-    ConsultaComprasComponent
+    ConsultaComprasComponent,
+    CapitalizadoPipe
   ],
   imports: [
     CommonModule,

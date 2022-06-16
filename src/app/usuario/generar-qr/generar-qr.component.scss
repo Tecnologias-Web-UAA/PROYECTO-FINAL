@@ -6,5 +6,39 @@
 }
 
 .cent{
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+}
+
+.cent p {
+    text-align: center;
+}
+
+.contenedorProd{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.prod{
+    width: 350px;
+}
+
+qr-code{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+.back{
+    font-family: 'Sporty';
+}
+
+.card-qr{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items:center
 }

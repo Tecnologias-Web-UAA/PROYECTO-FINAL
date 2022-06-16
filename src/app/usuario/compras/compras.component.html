@@ -22,9 +22,10 @@
                   <h2 style="text-align: center;">Productos De Electronica Halcón</h2>
                   <div class="card-columns">
                     <div class="card" *ngFor="let product of products">
-                      <img src="{{product.imagen}}" class="card-img-top" alt="...">
+                      <div *ngIf="product.cantidad > 0">
+                        <img src="{{product.imagen}}" class="card-img-top" alt="...">
                       <div class="card-body">
-                        <h2 class="card-title">{{product.nombre}}</h2>
+                        <h2 class="card-title">{{product.nombre | capitalizado:true}}</h2>
                         <h5>Existencia: {{product.cantidad}}</h5>
                         <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
                         <p class="card-text"> {{product.descripcion}}</p>
@@ -33,6 +34,7 @@
                         <div class="foot">
                         <button type="button" class="btn btn-info" (click)="comprar(product.id)">Comprar</button>
                         <button type="button" class="btn btn-danger" (click)="clickqr(product.id)">Generar QR del producto</button>
+                      </div>
                       </div>
                     </div>
                    

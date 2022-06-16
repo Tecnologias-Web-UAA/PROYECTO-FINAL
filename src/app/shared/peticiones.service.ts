@@ -27,4 +27,12 @@ export class PeticionesService {
     return this.http.get(`${this.ruta}/consultarqr/${id}`);
   }
 
+  comprarProducto(id:any){
+    return this.http.get(`${this.ruta}/comprarProducto/${id}`);
+  }
+
+  consultarProductoID(id:any){
+    return this.http.get(`${this.ruta}/QRProductoID/${id}`);
+  }
+
 }
