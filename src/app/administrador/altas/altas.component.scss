@@ -34,3 +34,12 @@ img{
     
     }
 }
+[class^="icon-"]{
+    font-size: 20px;
+    color: rgb(103, 103, 247) !important;
+}
+.scrollable-menu{
+    height: auto !important;
+    max-height: 200px !important;
+    overflow-x: hidden !important;
+}

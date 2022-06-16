@@ -9,8 +9,12 @@ th,td{
     text-align: center;
     font-style: italic;
 }
+// .card{
+//     border: 4px double rgba(201, 189, 189, 0.822);
+// }
 .card{
-    border: 4px double rgba(201, 189, 189, 0.822);
+    background: #eee;
+    border:4px double rgb(103, 103, 247)
 }
 img{
     height: 250px;

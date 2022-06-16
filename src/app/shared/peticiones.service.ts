@@ -22,6 +22,9 @@ export class PeticionesService {
     let params = new HttpParams().set('coleccion', coleccion);
     return this.http.get(`${this.ruta}/${path}/${coleccion}`);
   }
+  consultaUno(path:string){
+    return this.http.get(`${this.ruta}/${path}`);
+  }
   eliminar(path:string){
     // let params = new HttpParams().set('id', id);
     return this.http.get(`${this.ruta}/${path}`,{responseType: 'text'});

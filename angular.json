@@ -37,12 +37,12 @@
               "src/styles.scss",
               "node_modules/@cristobal-rivera/scripts/vendor/fontawesome-free/css/all.min.css",
               "src/assets/css/sb-admin-2.min.css"
+            
             ],
             "scripts": [
-              "node_modules/@cristobal-rivera/scripts/vendor/jquery/jquery.min.js",
-              "node_modules/@cristobal-rivera/scripts/vendor/bootstrap/js/bootstrap.bundle.min.js",
-              "node_modules/@cristobal-rivera/scripts/vendor/jquery-easing/jquery.easing.min.js",
-              "node_modules/@cristobal-rivera/scripts/js/sb-admin-2.js"  
+              "node_modules/jquery/dist/jquery.slim.min.js", 
+              "node_modules/popper.js/dist/umd/popper.min.js", 
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {

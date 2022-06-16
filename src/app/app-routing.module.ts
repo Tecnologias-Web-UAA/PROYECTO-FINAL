@@ -14,24 +14,29 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SignupComponent } from './signup/signup.component';
 import { InicioUserComponent } from './usuario/inicio-user/inicio-user.component';
 import { FAQComponent } from './faq/faq.component';
+import { EditarCompraComponent } from './administrador/editar-compra/editar-compra.component';
 
 const routes: Routes = [
+  //seccion general...
   {'path':'sign-up',component:SignupComponent},
   {'path':'sign-in',component:LoginComponent},
   {'path':'',component:HomeComponent},
-  {'path':'inicioAdmin',component:InicioComponent},
- 
   {'path':'app',component:AppComponent},
   {'path':'home',component:HomeComponent},
   {'path':'contacto',component:ContactoComponent},
+  
+  //seccion Admin
+  {'path':'inicioAdmin',component:InicioComponent},
   {'path':'altas',component:AltasComponent},
   {'path':'consultaProducto',component:ConsultaProductosComponent},
   {'path':'actualizarProducto',component:ActualizarProductoComponent},
   {'path':'editarProducto/:id',component:EditarProductoComponent},
   {'path':'navbarAdmin',component:NavbarComponent},
+  {'path':'editarCompra/:id',component:EditarCompraComponent},
+  {'path':'consultaCompras',component:ConsultaComprasComponent},
+  //seccion User
   {'path':'inicioUser',component:InicioUserComponent},
   {'path':'faq',component:FAQComponent},
-  {'path':'consultaCompras',component:ConsultaComprasComponent},
   
 
 ];

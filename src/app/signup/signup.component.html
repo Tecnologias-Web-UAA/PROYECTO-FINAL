@@ -24,31 +24,43 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¿No tienes cuenta?
+                                        <h1 class="h4 text-gray-900 mb-4">¿No tienes cuenta?<br>
                                             Que esperas! registrate ahora para obtener más beneficios
                                         </h1>
                                     </div>
                                     <form [formGroup]="myForm" (ngSubmit)="registrar()" class="user">
                                         <div class="form-group">
+                                            <p *ngIf="this.myForm.get('nombre')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Ingresa nombre de usuario..." formControlName="nombre">
+                                        </div>
+                                        <div class="form-group">
+                                            <p>Campo Opcional</p>
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Ingresa Direccion..." formControlName="direccion">
+                                        </div>
+                                        <div class="form-group">
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['email']">Correo invalido</p>
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." formControlName="correo">
+                                                placeholder="Ingresa correo electronico..." formControlName="correo">
                                         </div>
                                         <div class="form-group">
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" formControlName="contrasena">
+                                                id="exampleInputPassword" placeholder="Ingresa contraseña" formControlName="contrasena">
                                         </div>
                                         <div class="form-group">
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" formControlName="contrasena2">
+                                                id="exampleInputPassword" placeholder="Confirma contraseña" formControlName="contrasena2">
                                         </div>
                                         <p *ngIf="checarSiSonIguales()" style="text-align: center; color:red;">Las contraseñas no coinciden</p>
                                         <div class="form-group">

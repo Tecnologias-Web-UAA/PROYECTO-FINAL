@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~bootstrap/dist/css/bootstrap.min.css';
+
 @import "../node_modules/bootstrap/scss/functions";
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
@@ -37,7 +37,7 @@
 @import "../node_modules/bootstrap/scss/spinners";
 @import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/print";
-
+@import '~bootstrap/dist/css/bootstrap.min.css';
 .grises{
     filter: grayscale(1);
     
@@ -49,21 +49,7 @@
     background: rgb(145, 228, 145);
 }
 
-//cards responsivos
-/* .card-columns {
-    @include media-breakpoint-only(xl) {
-      column-count: 5;
-    }
-    @include media-breakpoint-only(lg) {
-      column-count: 4;
-    }
-    @include media-breakpoint-only(md) {
-      column-count: 3;
-    }
-    @include media-breakpoint-only(sm) {
-      column-count: 2;
-    }
-} */
+
 
 //fonts
 @font-face {
@@ -96,13 +82,43 @@ button{
     margin-left: 0.5em;
     width: 150px;
 }
-@media only screen and(max-width:830px) {
+@media only screen and(max-width:1120px) {
     .foot{
        flex-wrap: wrap;
         
     }
     button{
-        margin-top: 0.5em;
+        margin-top: 0.5em !important;
         width: 150px;
     }
+}
+//cards responsivos
+.card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 4 !important;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 4 !important;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 3 !important;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 2 !important;
+    }
+} 
+.card{
+    background: #eee !important;
+    border:4px double rgb(103, 103, 247) !important;
+}
+input[type=text],input[type=number],
+input[type=date],
+input[type=file],
+textarea{
+    background: #eee !important;
+    border:4px double rgb(103, 103, 247) !important;
+    
+}
+a{
+    cursor: pointer !important;
 }

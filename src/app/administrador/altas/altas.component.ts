@@ -9,7 +9,7 @@ import { finalize } from 'rxjs';
 import { AuthService } from 'src/app/shared/auth.service';
 import { PeticionesService } from 'src/app/shared/peticiones.service';
 import { Compra } from 'src/app/modelos/compra.model';
-
+import { getStorage, ref,listAll, getDownloadURL } from "firebase/storage";
 @Component({
   selector: 'app-altas',
   templateUrl: './altas.component.html',
@@ -23,6 +23,8 @@ export class AltasComponent implements OnInit {
   dirImagen!:string;
   file!:any;
   imageUrl:string='../../../assets/img/upload.png';
+  myImages:any[]=[];
+  band_select:boolean=false;
   @ViewChild("foto", {
     read: ElementRef
   }) foto!: ElementRef;
@@ -40,10 +42,29 @@ export class AltasComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    //obtiene todos los links de las imagenes que se encuentran en storage de firebase,
+    //guardandolas en un array y mostrarlas en un dropdown
+    //en caso de que el usuario desee seleccionar una imagen que ya esta cargada en firestorage
+    let storage = getStorage();
+    const spaceRef = ref(storage, 'productos');
+    let myref=this.storage.ref('productos');
+    listAll(spaceRef)
+    .then(async res=>{
+      for(let i of res.items){
+        const url = await getDownloadURL(i);
+        this.myImages.push(url);
+      
+      }
+    })
+    .catch(err=>console.log(err));
+      
+    
   }
   alta(){
     this.band=true;
     const id = Math.random().toString(36).substring(2);
+    if(!this.band_select){
+    
     const filePath = `productos/${id}_${this.file.name}`;
     const ref = this.storage.ref(filePath);
     const task = this.storage.upload(filePath,this.file);
@@ -80,6 +101,23 @@ export class AltasComponent implements OnInit {
           )
           .subscribe(()=>{
           });
+          }else{
+            this.producto.addProduct(this.myForm.value);
+            let compra:Compra={
+              id: id,
+              descripcion:this.myForm.value.descripcion,
+              nombre: this.myForm.value.nombre,
+              precio_unitario: this.myForm.value.precio,
+              cantidad: this.myForm.value.cantidad,
+              imagen:this.myForm.value.imagen,
+              fecha:this.myForm.value.fecha,
+              total:this.myForm.value.cantidad*this.myForm.value.precio
+            };
+            this.peticionesService.altas(compra,'altaCompra/compras').subscribe(res=>{
+              console.log('compra alta '+res)
+            });
+            this.myForm.reset();
+          }
     // let archivos = this.foto.nativeElement.files[0];
     // console.log(archivos);
   
@@ -90,14 +128,23 @@ export class AltasComponent implements OnInit {
       this.file = event.target.files[0];
     
 
-    const reader = new FileReader();
-    reader.onload = () => 
+      const reader = new FileReader();
+      reader.onload = () => 
       this.imageUrl = reader.result as string;
-    
-    reader.readAsDataURL(this.file);
+      
+      this.band_select = false;
+      reader.readAsDataURL(this.file);
   }
   click(){
     this.bandera==false?this.bandera=true:this.bandera=false;
   }
-
+  cargaImagen(event:any){
+     //en caso de que la imagen se elija como una que ya existe en storage de firebase 
+    let img =this.imageUrl = event.target.src;
+    this.myForm.value.imagen = img;
+    this.myForm.get('imagen')?.setValidators([]);
+    this.myForm.get('imagen')?.updateValueAndValidity();
+    this.band_select = true;
+    console.log(this.myForm.value)
+  }
 }

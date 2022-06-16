@@ -72,6 +72,29 @@
                                 
                             </div>
                             </div>
+                            <div class="row mt-2">
+                                <div class="col-sm col-md col-lg-4">
+                                    <span>Imagenes disponibles</span>
+                                </div>
+                                <div class="col-sm col-md col-lg-8">
+                                    <div class="dropdown " id="drop">
+    
+                                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false"><i class="icon-picture-o"></i></button>
+                                  
+                                        <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" style="background: #b4bdff;">
+                                          <a class="dropdown-item" *ngFor="let i of myImages">
+                                            <img src="{{i}}" alt="" (click)="cargaImagen($event)">
+                                          </a>
+                                          
+                                          
+                                  
+                                        </div>
+                                      </div>
+                                 
+                                    
+                                </div>
+                            </div>
                             <div class="row mt-4 ">
                                 <div class="col-lg-2"></div>
                                 <div class="col-sm col-md col-lg-8" id="imagen">
@@ -89,7 +112,7 @@
                             </div>
                        
                         <div class="button mt-4">
-                                <button type="submit" class="btn btn-danger" (click)="update()">Enviar</button>
+                                <button type="submit" class="btn btn-danger" (click)="update()" [disabled]="myForm.invalid">Enviar</button>
                                 <button type="reset" class="btn btn-info ml-4">Limpiar</button>
                         </div>
                     </form>

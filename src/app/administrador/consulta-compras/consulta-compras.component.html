@@ -21,7 +21,18 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
                   <h2 style="text-align: center;">Compras Realizadas</h2>
+                  <div class="card p-3 text-justify">
+                    <blockquote class="blockquote mb-0">
+                      <p>Inversion en compras: {{sum}}</p>
+                      <footer class="blockquote-footer">
+                        <small class="text-muted">
+                          Someone famous in <cite title="Source Title">Source Title</cite>
+                        </small>
+                      </footer>
+                    </blockquote>
+                  </div>
                   <div class="card-columns">
+                    
                     <div class="card" *ngFor="let compra of compras;let i=index">
                       <img src="{{compra.imagen}}" class="card-img-top" alt="...">
                       <div class="card-body">

@@ -1,5 +1,4 @@
 
-
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -21,7 +20,10 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                    <form [formGroup]="myForm">
+                    <div class="container">
+                        <h1>Editar Compra</h1>
+                        <form [formGroup]="myForm">
+                         
                         <div class="row mt-2">
                             <div class="col-sm col-md col-lg-4">
                                 <span>Nombre</span>
@@ -32,24 +34,21 @@
                         
                             
                         </div>
-
+                    
                         <div class="row mt-2">
                             <div class="col-sm col-md col-lg-4">
                                 <span>Descripción</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <!-- <input type="text" class="form-control" formControlName="descripcion" > -->
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="descripcion"></textarea>
                             </div>
-                        
-                            
-                        </div>
+                            </div>
                         <div class="row mt-2">
                             <div class="col-sm col-md col-lg-4">
                                 <span>Precio</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <input type="number" class="form-control" formControlName="precio" >
+                                <input type="number" class="form-control" formControlName="precio_unitario" (change)="modifica()" (keyup)="modifica()">
                             </div>
                         
                             
@@ -59,7 +58,17 @@
                                 <span>Cantidad</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <input type="number" class="form-control" formControlName="cantidad" >
+                                <input type="number" class="form-control" formControlName="cantidad" (change)="modifica()" (keyup)="modifica()">
+                            </div>
+                        
+                            
+                        </div>
+                        <div class="row mt-2" >
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Total</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input  type="number" class="form-control" formControlName="total" >
                             </div>
                         
                             
@@ -69,51 +78,50 @@
                                 <span>Fecha</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <input type="date" class="form-control" formControlName="fecha" >
+                                <input  type="date" class="form-control" formControlName="fecha" >
                             </div>
                         
                             
                         </div>
-
                         <div class="row mt-2">
                             <div class="col-sm col-md col-lg-4">
                                 <span>Imagen</span>
                             </div>
                             <div class="col-sm col-md col-lg-8">
-                                <input #foto type="file"  formControlName="imagen" (change)="mostrar($event)" >
+                                <input #foto type="file"  (change)="mostrar($event)" >
                                 
                             </div>
-                        </div>
-
-                        <div class="row mt-2">
-                            <div class="col-sm col-md col-lg-4">
-                                <span>Imagenes disponibles</span>
                             </div>
-                            <div class="col-sm col-md col-lg-8">
-                                <div class="dropdown " id="drop">
 
-                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                                      aria-haspopup="true" aria-expanded="false"><i class="icon-picture-o"></i></button>
-                              
-                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" style="background: #b4bdff;">
-                                      <a class="dropdown-item" *ngFor="let i of myImages">
-                                        <img src="{{i}}" alt="" (click)="cargaImagen($event)">
-                                      </a>
-                                      
+                            <div class="row mt-2">
+                                <div class="col-sm col-md col-lg-4">
+                                    <span>Imagenes disponibles</span>
+                                </div>
+                                <div class="col-sm col-md col-lg-8">
+                                    <div class="dropdown " id="drop">
+    
+                                        <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                          aria-haspopup="true" aria-expanded="false"><i class="icon-picture-o"></i></button>
+                                  
+                                        <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" style="background: #b4bdff;">
+                                          <a class="dropdown-item" *ngFor="let i of myImages">
+                                            <img src="{{i}}" alt="" (click)="cargaImagen($event)">
+                                          </a>
+                                          
+                                          
+                                  
+                                        </div>
+                                      </div>
                                  
-                                    </div>
-                                  </div>
-                             
-                                
+                                    
+                                </div>
                             </div>
-                        </div>
                             <div class="row mt-4 ">
                                 <div class="col-lg-2"></div>
                                 <div class="col-sm col-md col-lg-8" id="imagen">
                                     <img [src]="imageUrl" alt="">
                                 </div>
                             </div>
-                            
                             <div class="row mt-4" *ngIf="band">
                                 <div class="col-lg-4"><span>Subiendo datos</span></div>
                                 <div class="col-lg-4" >
@@ -125,10 +133,12 @@
                             </div>
                        
                         <div class="button mt-4">
-                                <button type="submit" class="btn btn-danger" (click)="alta()" [disabled]="myForm.invalid">Enviar</button>
+                                <button type="submit" class="btn btn-danger" (click)="update()" [disabled]="myForm.invalid" [disabled]="myForm.invalid">Enviar</button>
                                 <button type="reset" class="btn btn-info ml-4">Limpiar</button>
                         </div>
                     </form>
+                    </div>
+                    
                     <!-- Page Heading -->
                     
                     <!-- Content Row -->
