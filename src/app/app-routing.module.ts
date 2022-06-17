@@ -17,6 +17,7 @@ import { InicioUserComponent } from './usuario/inicio-user/inicio-user.component
 import { FAQComponent } from './faq/faq.component';
 import { ComprasComponent } from './usuario/compras/compras.component';
 import { GenerarQrComponent } from './usuario/generar-qr/generar-qr.component';
+import { GraficaExistenciasProdComponent } from './administrador/grafica-existencias-prod/grafica-existencias-prod.component';
 
 const routes: Routes = [
   {'path':'sign-up',component:SignupComponent},
@@ -36,7 +37,8 @@ const routes: Routes = [
   {'path':'faq',component:FAQComponent},
   {'path':'consultaCompras',component:ConsultaComprasComponent},
   {'path':'compras',component:ComprasComponent},
-  {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent}
+  {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent},
+  {'path':'graficaExistenciaProd', component:GraficaExistenciasProdComponent}
 
 ];
 

@@ -15,6 +15,8 @@ import { PeticionesService } from '../shared/peticiones.service';
 import {HttpClientModule} from '@angular/common/http';
 import { ConsultaComprasComponent } from './consulta-compras/consulta-compras.component';
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+import { GraficaExistenciasProdComponent } from './grafica-existencias-prod/grafica-existencias-prod.component';
+import { NgChartsModule } from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
     NavbarAdminComponent,
     TopbarComponent,
     ConsultaComprasComponent,
-    CapitalizadoPipe
+    CapitalizadoPipe,
+    GraficaExistenciasProdComponent
   ],
   imports: [
     CommonModule,
@@ -34,7 +37,8 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
     AngularFireStorageModule,
     AngularFireModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers:[PeticionesService]
 })

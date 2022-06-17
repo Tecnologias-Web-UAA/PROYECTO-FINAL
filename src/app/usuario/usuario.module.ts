@@ -9,6 +9,7 @@ import { GenerarQrComponent } from './generar-qr/generar-qr.component';
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
 import { QRCodeModule } from 'angular2-qrcode';
 import { ComprasComponent } from './compras/compras.component';
+import { NgChartsModule } from 'ng2-charts'
 
 @NgModule({
   declarations: [
@@ -18,12 +19,13 @@ import { ComprasComponent } from './compras/compras.component';
     NavbarTopUserComponent,
     GenerarQrComponent,
     CapitalizadoPipe,
-    ComprasComponent
+    ComprasComponent,
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    QRCodeModule
+    QRCodeModule,
+    NgChartsModule
   ]
 })
 export class UsuarioModule { }
