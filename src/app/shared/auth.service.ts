@@ -72,6 +72,8 @@ export class AuthService {
   isLogged(){
     return
   }
+  //metodo que se encarga de dar de alta al usuario que se registra por primera vez en la coleccion usuario,
+  //para despues consultar todos los usuarios en la cuenta de admin..
   setUser(){
     let auth:any = getAuth();
 
@@ -92,7 +94,7 @@ export class AuthService {
         console.log(this.obj)
         
       // });
-        let array:any[] = [];
+      let array:any[] = [];
       this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
         array = res.myarray;
         let i = array.findIndex(p=>p.email == this.obj.email);

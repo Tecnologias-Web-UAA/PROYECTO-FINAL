@@ -86,7 +86,7 @@ export class AltasComponent implements OnInit {
                           id: id,
                           descripcion:this.myForm.value.descripcion,
                           nombre: this.myForm.value.nombre,
-                          precio_unitario: this.myForm.value.precio,
+                          precio_unitario: this.myForm.value.precio*0.90,
                           cantidad: this.myForm.value.cantidad,
                           imagen:this.dirImagen,
                           fecha:this.myForm.value.fecha,

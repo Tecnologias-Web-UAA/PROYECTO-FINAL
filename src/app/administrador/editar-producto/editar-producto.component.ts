@@ -57,7 +57,8 @@ export class EditarProductoComponent implements OnInit {
     //obtiene todos los links de las imagenes que se encuentran en storage de firebase
     let storage = getStorage();
     const spaceRef = ref(storage, 'productos');
-    
+    //video que explica bien lo de mostrar imagenes de storage de firebase en angular...
+    //https://www.youtube.com/watch?v=qS5R6Mjq36U
     listAll(spaceRef)
     .then(async res=>{
       for(let i of res.items){

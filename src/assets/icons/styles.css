@@ -110,3 +110,15 @@
 .icon-disability:before {
   content: "\78";
 }
+.icon-picture-o:before {
+  content: "\79";
+}
+.icon-search:before {
+  content: "\7a";
+}
+.icon-upload-cloud:before {
+  content: "\41";
+}
+.icon-home:before {
+  content: "\42";
+}

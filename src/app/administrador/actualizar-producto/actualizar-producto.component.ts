@@ -34,6 +34,7 @@ export class ActualizarProductoComponent implements OnInit {
       this.products = products;
       swal.close();
     },err=>{
+      //si la subscripcion da error mostramos error y cerramos loading 
       swal.close();
       swal.fire({
         allowOutsideClick: true,
