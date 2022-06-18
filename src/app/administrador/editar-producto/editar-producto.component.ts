@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { finalize } from 'rxjs';
 import { getStorage, ref,listAll, getDownloadURL } from "firebase/storage";
 import { AngularFireStorage } from '@angular/fire/compat/storage';
+import swal from 'sweetalert2';
+import { PeticionesService } from 'src/app/shared/peticiones.service';
 @Component({
   selector: 'app-editar-producto',
   templateUrl: './editar-producto.component.html',
@@ -31,26 +33,55 @@ export class EditarProductoComponent implements OnInit {
   band_select:boolean=true;
   dirImagen!:string;
   constructor(private producto:ProductoService,private activatedRoute:ActivatedRoute,private router:Router,
-    private storage:AngularFireStorage) {
+    private storage:AngularFireStorage,private peticiones:PeticionesService) {
     
     this.activatedRoute.params.subscribe(params=>{
       
+      swal.fire({
+        allowOutsideClick: false,
+        title: "Cargando...",
+        text: "Espere por favor",
+      });
+      swal.showLoading();
+
+      this.peticiones.consultaUno(`consultaUno/producto/${params["id"]}`).subscribe((res:any)=>{
+        console.log(res.data);
+      //   this.myproducto = res.data;
+      //   //agregamos los datos solicitados a los campos de nuestro reactive form
+      //   this.myForm.get('id')?.setValue(this.myproducto.id);
+      //   this.myForm.get('nombre')?.setValue(this.myproducto.nombre) ;
+      //   this.myForm.get('descripcion')?.setValue(this.myproducto.descripcion) ;
+      //   this.myForm.get('precio')?.setValue(this.myproducto.precio) ;
+      //   this.myForm.get('cantidad')?.setValue(this.myproducto.cantidad) ;
+      //   this.myForm.get('imagen')?.setValue(this.myproducto.imagen) ;
+      //   this.imageUrl=this.myForm.value.imagen;
+      //   swal.close();
+      // });
       
-       producto.getProduct(params['id']).subscribe(res=>{this.myproducto=res
-        this.myForm=new FormGroup({
-          'id':new FormControl(this.myproducto.id),
-          'nombre':new FormControl(this.myproducto.nombre,[Validators.required,Validators.minLength(2)]),
-          'descripcion':new FormControl(this.myproducto.descripcion,[Validators.required]),
-          'precio':new FormControl(this.myproducto.precio,[Validators.required]),
-          'cantidad':new FormControl(this.myproducto.cantidad,[Validators.required]),
-          'imagen':new FormControl(this.myproducto.imagen,[Validators.required])
-        });
+
+       producto.getProduct(params['id']).subscribe(res=>{
+        this.myproducto=res;
+        // this.myForm=new FormGroup({
+        //   'id':new FormControl(this.myproducto.id),
+        //   'nombre':new FormControl(this.myproducto.nombre,[Validators.required,Validators.minLength(2)]),
+        //   'descripcion':new FormControl(this.myproducto.descripcion,[Validators.required]),
+        //   'precio':new FormControl(this.myproducto.precio,[Validators.required]),
+        //   'cantidad':new FormControl(this.myproducto.cantidad,[Validators.required]),
+        //   'imagen':new FormControl(this.myproducto.imagen,[Validators.required])
+        // });
+        this.myForm.get('id')?.setValue(this.myproducto.id);
+        this.myForm.get('nombre')?.setValue(this.myproducto.nombre) ;
+        this.myForm.get('descripcion')?.setValue(this.myproducto.descripcion) ;
+        this.myForm.get('precio')?.setValue(this.myproducto.precio) ;
+        this.myForm.get('cantidad')?.setValue(this.myproducto.cantidad) ;
+        this.myForm.get('imagen')?.setValue(this.myproducto.imagen) ;
+
         this.imageUrl=this.myForm.value.imagen;
-        
+        swal.close();
       });
        
     });
-  
+    });
    }
 
   ngOnInit(): void {
@@ -114,12 +145,14 @@ export class EditarProductoComponent implements OnInit {
           });
     }else{
       console.log("II valor: "+ this.myForm.value);
-      this.producto.updateProduct(this.myForm.value);
+       this.producto.updateProduct(this.myForm.value);
+     
       this.myForm.reset();
       this.imageUrl='../../../assets/img/upload.png';
     }
     
-    
+  
+    this.router.navigate(['/actualizarProducto']);
   }
   click(){
     this.bandera==false?this.bandera=true:this.bandera=false;
