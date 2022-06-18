@@ -19,6 +19,7 @@ import { EditarCompraComponent } from './administrador/editar-compra/editar-comp
 
 import { ComprasComponent } from './usuario/compras/compras.component';
 import { GenerarQrComponent } from './usuario/generar-qr/generar-qr.component';
+import { GraficaExistenciasProdComponent } from './administrador/grafica-existencias-prod/grafica-existencias-prod.component';
 
 
 const routes: Routes = [
@@ -45,7 +46,8 @@ const routes: Routes = [
 
   {'path':'consultaCompras',component:ConsultaComprasComponent},
   {'path':'compras',component:ComprasComponent},
-  {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent}
+  {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent},
+  {'path':'graficaExistenciaProd', component:GraficaExistenciasProdComponent}
 
 
 ];

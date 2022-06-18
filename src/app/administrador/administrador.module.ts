@@ -19,6 +19,8 @@ import { EditarCompraComponent } from './editar-compra/editar-compra.component';
  
 
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
+import { GraficaExistenciasProdComponent } from './grafica-existencias-prod/grafica-existencias-prod.component';
+import { NgChartsModule } from 'ng2-charts'
 
 
 @NgModule({
@@ -31,8 +33,13 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
     NavbarAdminComponent,
     TopbarComponent,
     ConsultaComprasComponent,
+
     EditarCompraComponent,
-    CapitalizadoPipe
+    CapitalizadoPipe,
+
+
+    CapitalizadoPipe,
+    GraficaExistenciasProdComponent
 
   ],
   imports: [
@@ -41,7 +48,8 @@ import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
     AngularFireStorageModule,
     AngularFireModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers:[PeticionesService]
 })
