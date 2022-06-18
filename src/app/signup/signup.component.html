@@ -24,42 +24,41 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">¿No tienes cuenta?
+                                        <h1 class="h4 text-gray-900 mb-4">¿No tienes cuenta?<br>
                                             Que esperas! registrate ahora para obtener más beneficios
                                         </h1>
                                     </div>
                                     <form [formGroup]="myForm" (ngSubmit)="registrar()" class="user">
+                                       
+                                       
                                         <div class="form-group">
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             <p *ngIf="this.myForm.get('correo')?.errors?.['email']">Correo invalido</p>
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." formControlName="correo">
+                                                placeholder="Ingresa correo electronico..." formControlName="correo">
                                         </div>
                                         <div class="form-group">
-                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 5 caracteres)</p>
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
                                             <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" formControlName="contrasena">
+                                                id="exampleInputPassword" placeholder="Ingresa contraseña" formControlName="contrasena">
                                         </div>
                                         <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="check">
-                                                <label class="custom-control-label" for="customCheck" >Remember
-                                                    Me</label>
-                                            </div>
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 7 caracteres)</p>
+                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            
+                                            <input type="password" class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Confirma contraseña" formControlName="contrasena2">
                                         </div>
+                                        <p *ngIf="checarSiSonIguales()" style="text-align: center; color:red;">Las contraseñas no coinciden</p>
+                                        
                                         <button  class="btn btn-primary btn-user btn-block"  [disabled]="myForm.invalid">
                                             Registrar
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        
                                     </form>
                                     <hr>
                                     

@@ -24,36 +24,48 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1  [ngStyle]="{'font-size.px':accesibilidad.font_size+10,'font-family':accesibilidad.font_h}" 
+                                        class="h4 text-gray-900 mb-4">Bienvenido!</h1>
                                     </div>
                                     <form class="user" [formGroup]="myForm" >
                                         <div class="form-group">
-                                            <p *ngIf="this.myForm.get('correo')?.errors?.['email']">Correo invalido</p>
-                                            <p *ngIf="this.myForm.get('correo')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myForm.get('correo')?.errors?.['email']">Correo invalido</p>
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myForm.get('correo')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="email" class="form-control form-control-user"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..." formControlName="correo">
+                                                placeholder="Ingresa direccion de correo electrónico..." formControlName="correo"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
                                         </div>
                                         <div class="form-group">
-                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']">(Debe tener minimo 5 caracteres)</p>
-                                            <p *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myForm.get('contrasena')?.errors?.['minlength']"
+                                            >(Debe tener minimo 7 caracteres)</p>
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}" 
+                                            *ngIf="this.myForm.get('contrasena')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" formControlName="contrasena">
+                                                id="exampleInputPassword" placeholder="Ingresa contraseña" formControlName="contrasena"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
+                                                <input type="checkbox" class="custom-control-input" id="customCheck" formControlName="check"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+                                                <label class="custom-control-label" for="customCheck"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">Recordar datos
+                                                    </label>
                                             </div>
                                         </div>
-                                        <button  class="btn btn-primary btn-user btn-block" [disabled]="myForm.invalid" (click)="logIn()">
+                                        <button  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"  
+                                        class="btn btn-primary btn-user btn-block" [disabled]="myForm.invalid" (click)="logIn()">
                                             Login
                                         </button>
                                         <hr>
-                                        <button class="btn btn-google btn-user btn-block" (click)="logInGoogle()">
+                                        <button  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                        class="btn btn-google btn-user btn-block" (click)="logInGoogle()">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </button>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
@@ -61,11 +73,10 @@
                                         </a>
                                     </form>
                                     <hr>
+                                    
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" [routerLink]="['/sign-up']">Create an Account!</a>
+                                        <a  [ngStyle]="{'font-size.px':accesibilidad.font_size-5,'font-family':accesibilidad.font_p}"
+                                        class="small" [routerLink]="['/sign-up']">Crear una cuenta!</a>
                                     </div>
                                 </div>
                             </div>

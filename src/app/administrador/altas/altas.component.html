@@ -1,0 +1,192 @@
+
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+       <app-navbar-admin  [band]="!bandera"></app-navbar-admin>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <app-topbar (emitBand)="click()"></app-topbar>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    <form [formGroup]="myForm">
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Nombre</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input type="text" class="form-control" formControlName="nombre" >
+                            </div>
+                        
+                            
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Descripción</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <!-- <input type="text" class="form-control" formControlName="descripcion" > -->
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" formControlName="descripcion"></textarea>
+                            </div>
+                        
+                            
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Precio</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input type="number" class="form-control" formControlName="precio" >
+                            </div>
+                        
+                            
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Cantidad</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input type="number" class="form-control" formControlName="cantidad" >
+                            </div>
+                        
+                            
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Fecha</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input type="date" class="form-control" formControlName="fecha" >
+                            </div>
+                        
+                            
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Imagen</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <input #foto type="file"  formControlName="imagen" (change)="mostrar($event)" >
+                                
+                            </div>
+                        </div>
+
+                        <div class="row mt-2">
+                            <div class="col-sm col-md col-lg-4">
+                                <span>Imagenes disponibles</span>
+                            </div>
+                            <div class="col-sm col-md col-lg-8">
+                                <div class="dropdown " id="drop">
+
+                                    <button class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                      aria-haspopup="true" aria-expanded="false"><i class="icon-picture-o"></i></button>
+                              
+                                    <div class="dropdown-menu scrollable-menu" aria-labelledby="dropdownMenuButton" style="background: #b4bdff;">
+                                      <a class="dropdown-item" *ngFor="let i of myImages">
+                                        <img src="{{i}}" alt="" (click)="cargaImagen($event)">
+                                      </a>
+                                      
+                                 
+                                    </div>
+                                  </div>
+                             
+                                
+                            </div>
+                        </div>
+                            <div class="row mt-4 ">
+                                <div class="col-lg-2"></div>
+                                <div class="col-sm col-md col-lg-8" id="imagen">
+                                    <img [src]="imageUrl" alt="">
+                                </div>
+                            </div>
+                            
+                            <div class="row mt-4" *ngIf="band">
+                                <div class="col-lg-4"><span>Subiendo datos</span></div>
+                                <div class="col-lg-4" >
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"  [ngStyle]="{'width.%':porcentaje|async}"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4"></div>
+                            </div>
+                       
+                        <div class="button mt-4">
+                                <button type="submit" class="btn btn-danger" (click)="alta()" [disabled]="myForm.invalid">Enviar</button>
+                                <button type="reset" class="btn btn-info ml-4">Limpiar</button>
+                        </div>
+                    </form>
+                    <!-- Page Heading -->
+                    
+                    <!-- Content Row -->
+                  
+                    <!-- Content Row -->
+
+                    
+                    <!-- Content Row -->
+             
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; ISC 6:b 2022</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+</body>
+
+

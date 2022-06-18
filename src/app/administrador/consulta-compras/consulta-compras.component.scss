@@ -1,0 +1,43 @@
+table{
+    border-collapse: collapse;
+    margin: auto;
+    font-size: 20px;
+}
+th,td{
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    font-style: italic;
+}
+.card{
+    border: 4px double rgba(201, 189, 189, 0.822);
+}
+img{
+    height: 250px;
+}
+.card-columns{
+    padding: 2em;
+}
+.card{
+    background: #eee;
+    border:4px double rgb(103, 103, 247)
+}
+.foot{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+button{
+    margin-left: 0.5em;
+    width: 150px;
+}
+@media only screen and(max-width:830px) {
+    .foot{
+       flex-wrap: wrap;
+        
+    }
+    button{
+        margin-top: 0.5em;
+        width: 150px;
+    }
+}

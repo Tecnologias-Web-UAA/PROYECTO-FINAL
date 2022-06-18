@@ -1,0 +1,44 @@
+<div class="container-fluid mt-5">
+  <h1 class="display p-4 text-center text-danger">INICIAR SESION</h1>
+  <div class="row mx-2 p-2">
+    <div class="col-4">
+      <h2>SESIÓN USUARIO CORREO Y CONTRASEÑA</h2>
+      <div class="form-group">
+        <label class="form-label">EMAIL</label>
+        <input type="text" class="form-control" placeholder="name@example.com" #userName required/>
+      </div>
+      <div class="form-group">
+        <label class="form-label">PASSWORD</label>
+        <input type="password" class="form-control" #userPassword required/>
+      </div>
+      <div class="form-group">
+        <input type="button" class="btn btn-primary btn-block" value="Iniciar Sesión" 
+        (click)="authService.SignIn(userName.value, userPassword.value)"/>
+      </div>
+    </div>
+    <div class="col-4">
+      <h2>INICIO DE SESION CON GOOGLE</h2>
+      <div class="form-group mt-5">
+        <button type="button" class="btn btn-primary btn-block" (click)="authService.GoogleAuth()">INICIAR</button>
+      </div>
+    </div>
+    <div class="col-4">
+      <h2>INICIAR SESIÓN TELEFONO</h2>
+      <div class="form-group mt-5">
+        <label class="form-label">N. telefonico</label>
+        <input type="text" class="form-control" #Phone required/>
+      </div>
+      <div id="recaptcha-container" class="form-group"></div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" (click)="sendCode(Phone.value)">ENVIAR MENSAJE</button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">CÓDIGO</label>
+        <input type="text" class="form-control"  #Code required/>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary btn-block" (click)="authService.verifyCode(Code.value)">Iniciar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>

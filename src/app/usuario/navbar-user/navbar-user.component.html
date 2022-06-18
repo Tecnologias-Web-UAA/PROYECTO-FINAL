@@ -1,0 +1,39 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" [ngClass]="{toggled:!band}" id="accordionSidebar">
+    
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon rotate-n-15">
+            <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3" >USUARIO LOGUIADO <sup>*</sup></div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active" routerLinkActive="active-link">
+        <a class="nav-link" [routerLink]="['/consultar']">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Consultar</span></a>
+    </li>
+   
+    <li class="nav-item active" routerLinkActive="active-link">
+        <a class="nav-link" [routerLink]="['/compras']">
+            <i class="fas fa-fw fa-tachometer-alt" ></i>
+            <span>Comprar</span></a>
+    </li>
+     
+    <!-- <li class="nav-item active" routerLinkActive="active-link">
+        <a class="nav-link" [routerLink]="['/graficar']">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Grafica</span></a>
+    </li> -->
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Consultas
+    </div>
+</ul>

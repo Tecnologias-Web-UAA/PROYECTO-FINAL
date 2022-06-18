@@ -1,0 +1,45 @@
+span{
+    color: black;
+    text-align:justify;
+   float: right;
+
+}
+h1{
+    text-align: center;
+}
+.button{
+    display: flex;
+    justify-content: center;
+}
+#imagen{
+    display: flex;
+    justify-content: center;
+}
+img{
+    width: 100px;
+    border-radius: 15px;
+
+}
+#progress{
+    display: flex;
+    justify-content: center;
+}
+.progress{
+    background: #eee;
+    border:2px double rgb(103, 103, 247);
+}
+@media only  screen and (max-width:575px) {
+    span{
+        float: left;
+    
+    }
+}
+[class^="icon-"]{
+    font-size: 20px;
+    color: rgb(103, 103, 247) !important;
+}
+.scrollable-menu{
+    height: auto !important;
+    max-height: 200px !important;
+    overflow-x: hidden !important;
+}

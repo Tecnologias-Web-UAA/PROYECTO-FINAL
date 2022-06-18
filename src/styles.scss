@@ -1,4 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/code";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/input-group";
+@import "../node_modules/bootstrap/scss/custom-forms";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/breadcrumb";
+@import "../node_modules/bootstrap/scss/pagination";
+@import "../node_modules/bootstrap/scss/badge";
+@import "../node_modules/bootstrap/scss/jumbotron";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/media";
+@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/toasts";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/print";
+@import '~bootstrap/dist/css/bootstrap.min.css';
 .grises{
     filter: grayscale(1);
     
@@ -8,4 +47,84 @@
 }
 .dropdown-item:hover{
     background: rgb(145, 228, 145);
+}
+
+
+
+//fonts
+@font-face {
+    font-family: 'Affichage';
+    src: url("assets/fonts/affichage/Affichage.ttf");
+}
+@font-face {
+    font-family: 'Eriega';
+    src: url("assets/fonts/eriega/Eriega.otf");
+}
+@font-face {
+    font-family: 'Bridge';
+    src: url("assets/fonts/iron_bridge/Iron\ Bridge.ttf");
+}
+@font-face {
+    font-family: 'Sherika';
+    src: url("assets/fonts/sherika/Sherika-ExtraBold/Sherika-ExtraBold.otf");
+}
+@font-face {
+    font-family: 'Sporty';
+    src: url("assets/fonts/sporty-vista/SPORTY\ VISTA.otf");
+}
+
+.foot{
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+button{
+    margin-left: 0.5em;
+    width: 150px;
+}
+@media only screen and(max-width:1120px) {
+    .foot{
+       flex-wrap: wrap;
+        
+    }
+    button{
+        margin-top: 0.5em !important;
+        width: 150px;
+    }
+}
+//cards responsivos
+.card-columns {
+    @include media-breakpoint-only(xl) {
+      column-count: 4 !important;
+    }
+    @include media-breakpoint-only(lg) {
+      column-count: 4 !important;
+    }
+    @include media-breakpoint-only(md) {
+      column-count: 3 !important;
+    }
+    @include media-breakpoint-only(sm) {
+      column-count: 2 !important;
+    }
+} 
+.card{
+    background: #eee !important;
+    border:4px double rgb(103, 103, 247) !important;
+}
+input[type=text],input[type=number],
+input[type=date],
+input[type=file],
+textarea{
+    background: #eee !important;
+    border:4px double rgb(103, 103, 247) !important;
+    
+}
+a{
+    cursor: pointer !important;
+}
+body{
+      background-image: url('assets/img/navbarfondo3.png') !important;
+      background-repeat: no-repeat !important;
+     background-attachment: fixed !important;
+     background-size: 100% 100% !important;
 }

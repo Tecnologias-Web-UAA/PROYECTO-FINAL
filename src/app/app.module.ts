@@ -10,10 +10,13 @@ import { SignupComponent } from './signup/signup.component';
 import {AngularFireModule} from '@angular/fire/compat';
 import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule,FormsModule } from '@angular/forms';
-import { LoadingComponent } from './loading/loading.component';
 import { AdministradorModule } from './administrador/administrador.module';
 import { HomeComponent } from './home/home.component';
 import { ContactoComponent } from './contacto/contacto.component';
+import {HttpClientModule} from '@angular/common/http';
+import { UsuarioModule } from './usuario/usuario.module';
+import { FAQComponent } from './faq/faq.component';
+import { CapitalizacionPipePipe } from './pipe/capitalizacion-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -21,9 +24,10 @@ import { ContactoComponent } from './contacto/contacto.component';
     LoginComponent,
     NavbarComponent,
     SignupComponent,
-    LoadingComponent,
     HomeComponent,
-    ContactoComponent
+    ContactoComponent,
+    FAQComponent,
+    CapitalizacionPipePipe,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +35,9 @@ import { ContactoComponent } from './contacto/contacto.component';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FormsModule,
-    AdministradorModule
+    AdministradorModule,
+    HttpClientModule,
+    UsuarioModule
   ],
   providers: [AccesibilidadService],
   bootstrap: [AppComponent]

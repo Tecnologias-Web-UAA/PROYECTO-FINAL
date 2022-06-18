@@ -1,0 +1,7 @@
+<table >
+    <tr *ngFor="let product of productos">
+        <span>{{product.nombre | capitalizado:true}}</span>
+        <img src="{{product.imagen}}" alt="" width="100px">
+    </tr>
+
+</table>

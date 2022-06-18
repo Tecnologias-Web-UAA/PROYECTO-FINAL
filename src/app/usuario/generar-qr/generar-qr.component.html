@@ -1,0 +1,97 @@
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+      <!--  <app-navbar-user  [band]="band"></app-navbar-user> -->
+      <app-navbar-user [band]="band"></app-navbar-user>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <app-navbar-top-user (emitBand)="click()"></app-navbar-top-user>
+
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid cent">
+                    <h2 style="text-align: center;">Productos De Electronica Halcón</h2>
+                    <div class="row">
+                        <div class="col-12 card-qr">
+                            <div class="contenedorProd">
+                                <div class="prod">
+                                    <img src="{{product.imagen}}" class="card-img-top" alt="...">
+                                    <h2 class="card-title">{{product.nombre | capitalizado:true}}</h2>
+                                    <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="sidebar-divider my-0">
+                    <div class="row cent">
+                        <div class="col-12">
+                            <div class="qr">
+                                <qr-code [size]="size" [background]="fondo" [foreground]="colorqr" [value]="qrInformacion"></qr-code>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                        <a class="nav-link back" [routerLink]="['/compras']">Regresar</a>
+                    <hr>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+ 
+
+</body>
