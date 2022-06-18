@@ -36,6 +36,8 @@ export class LoginMsmComponent implements OnInit {
     this.authService.sendCode(this.myFormNumber.value.numero, this.recaptchaVerifier);
   }
   verify(){
-    this.authService.verifyCode(this.myFormCode.value.codigo);
+    this.authService.verifyCode(this.myFormCode.value.codigo).catch((err:any)=>{
+      alert("error")
+    });
   }
 }
