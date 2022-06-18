@@ -122,3 +122,12 @@
 .icon-home:before {
   content: "\42";
 }
+.icon-shopping-cart:before {
+  content: "\43";
+}
+.icon-cart-plus:before {
+  content: "\44";
+}
+.icon-qrcode:before {
+  content: "\45";
+}
