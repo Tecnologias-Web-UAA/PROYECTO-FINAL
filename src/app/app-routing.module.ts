@@ -20,6 +20,7 @@ import { EditarCompraComponent } from './administrador/editar-compra/editar-comp
 import { ComprasComponent } from './usuario/compras/compras.component';
 import { GenerarQrComponent } from './usuario/generar-qr/generar-qr.component';
 import { GraficaExistenciasProdComponent } from './administrador/grafica-existencias-prod/grafica-existencias-prod.component';
+import { ConsultaUsersComponent } from './administrador/consulta-users/consulta-users.component';
 
 
 const routes: Routes = [
@@ -40,6 +41,8 @@ const routes: Routes = [
   {'path':'navbarAdmin',component:NavbarComponent},
   {'path':'editarCompra/:id',component:EditarCompraComponent},
   {'path':'consultaCompras',component:ConsultaComprasComponent},
+  {'path':'consultaUsuarios',component:ConsultaUsersComponent},
+  
   //seccion User
   {'path':'inicioUser',component:InicioUserComponent},
   {'path':'faq',component:FAQComponent},

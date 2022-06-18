@@ -9,7 +9,7 @@ export class PeticionesService {
   ruta:string ='http://localhost:3000'; 
   constructor(private http: HttpClient) { }
 
-  altas(compra:Compra,path:string):Observable<any>{
+  altas(compra:any,path:string):Observable<any>{
     return this.http.post(`${this.ruta}/${path}`,compra,{responseType: 'text'});
     //opciones que puede llevar el responseType(respuesta que envia node)
     //->json (the default)

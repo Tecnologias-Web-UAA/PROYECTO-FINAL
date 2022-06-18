@@ -15,6 +15,14 @@ export class ConsultaProductosComponent implements OnInit {
     swal.fire('espere','','success');
     this.productosService.getProducts().subscribe(products =>{
       this.productos = products;
+    },err=>{
+      swal.close();
+      swal.fire({
+        allowOutsideClick: true,
+        title: "Error...",
+        text: "Algo salio mal...Revisa tu conexion a internet ",
+        confirmButtonText:'Entendido'
+      });
     });
   }
 

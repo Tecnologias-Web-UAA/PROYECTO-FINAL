@@ -20,7 +20,8 @@ import { EditarCompraComponent } from './editar-compra/editar-compra.component';
 
 import { CapitalizadoPipe } from './pipes/capitalizado.pipe';
 import { GraficaExistenciasProdComponent } from './grafica-existencias-prod/grafica-existencias-prod.component';
-import { NgChartsModule } from 'ng2-charts'
+import { NgChartsModule } from 'ng2-charts';
+import { ConsultaUsersComponent } from './consulta-users/consulta-users.component'
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { NgChartsModule } from 'ng2-charts'
 
 
     CapitalizadoPipe,
-    GraficaExistenciasProdComponent
+    GraficaExistenciasProdComponent,
+    ConsultaUsersComponent
 
   ],
   imports: [

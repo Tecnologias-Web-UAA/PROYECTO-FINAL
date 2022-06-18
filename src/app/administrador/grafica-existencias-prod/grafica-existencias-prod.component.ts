@@ -126,6 +126,14 @@ export class GraficaExistenciasProdComponent implements OnInit {
         this.barChartData.push({ data: [this.producto[i].cantidad], label: `${this.producto[i].nombre}`, backgroundColor:`rgba(${Math.round(Math.random() * (255 - 0) + 0)}, ${Math.round(Math.random() * (252 - 0) + 0)}, ${Math.round(Math.random() * (255 - 0) + 0)}, 0.69)`, borderColor: `rgb(${Math.round(Math.random() * (255 - 0) + 0)}, ${Math.round(Math.random() * (252 - 0) + 0)}, ${Math.round(Math.random() * (252 - 0) + 0)})`, borderWidth: this.ancho, type: this.barChartType, borderRadius: this.radius});
       }
       console.log('Listo'); 
+    },err=>{
+      swal.close();
+      swal.fire({
+        allowOutsideClick: true,
+        title: "Error...",
+        text: "Algo salio mal...Intenta de nuevo ",
+        confirmButtonText:'Entendido'
+      });
     });
   }
 

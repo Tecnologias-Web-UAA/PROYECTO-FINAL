@@ -1,6 +1,5 @@
 
-
-<body id="page-top">
+  <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -14,41 +13,59 @@
 
             <!-- Main Content -->
             <div id="content">
-                 <!-- Topbar -->
-                 <app-topbar (emitBand)="click()"></app-topbar>
-                 <!-- End of Topbar -->
-                 <div class="container-fluid">
-                    <h2>Ganancias en diferentes Paises el ultimo mes</h2>
-                    <div class="row">
+
+                <!-- Topbar -->
+                <app-topbar (emitBand)="click()"></app-topbar>
+                <!-- End of Topbar -->
+
+                <!-- Begin Page Content -->
+                <div class="row">
+                    <div class="col-4 col-sm-6 col-md-8 col-lg-12">
                         
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let pos of posiciones ">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Pais: ({{paises[pos].name}})</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">${{500.5*pos+100 | number:'.0-3'}}</div>
-                                        </div>
-                                        <div class="col-auto mt-5" style="text-align: center;">
-                                            <img src="{{paises[pos].flag}}" width="30%" alt="Imagen pais">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        </div>
-
-
-                       
+                         
+                          
+                          <table class="table">
+                            <thead class="table-primary">
+                              <tr>
+                                <th scope="col">Nombre</th>
+                                <th scope="col">Correo</th>
+                                <th scope="col">UID</th>
+                                <th scope="col">Foto</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let user of users" class="table-success">
+                               
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.uid}}</td>
+                                <td><img src="{{user.photo}}" alt="" width="100px"></td>
+                              </tr>
+                              
+                            </tbody>
+                          </table>
+<!-- 
+                        <table >
+                            <tr >
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>UID</th>
+                                <th>Foto</th>
+                               
+                            </tr>
+                            <tr *ngFor="let user of users">
+                                <td>{{user.name}}</td>
+                                <td>{{user.email}}</td>
+                                <td>{{user.uid}}</td>
+                                <td><img src="{{user.photo}}" alt="" width="100px"></td>
+                            </tr>
+                        </table> -->
                     </div>
-
                 </div>
+                
                 <!-- /.container-fluid -->
 
-            
+            </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -58,7 +75,6 @@
                         <span>Copyright &copy; Your Website 2021</span>
                     </div>
                 </div>
-                <a class="nav-link" [routerLink]="['/inicioUser']">Pruebas</a>
             </footer>
             <!-- End of Footer -->
 
@@ -96,4 +112,5 @@
  
 
 </body>
+
 

@@ -12,7 +12,7 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   myForm!:FormGroup;
-  constructor(private auth:AuthService,private accesibilidad:AccesibilidadService,private router:Router) {
+  constructor(private auth:AuthService,public accesibilidad:AccesibilidadService,private router:Router) {
     this.myForm=new FormGroup({
       'correo':new FormControl('',[Validators.required,Validators.email]),
       'contrasena':new FormControl('',[Validators.required,Validators.minLength(7)]),
@@ -71,9 +71,10 @@ export class LoginComponent implements OnInit {
     swal.showLoading();
    
     this.auth.GoogleAuth().then((res: any) => {
+      
       if (res) {
         this.accesibilidad.changeBand();
-   
+       
         this.router.navigate(['/inicioAdmin']);
         swal.close();
       }

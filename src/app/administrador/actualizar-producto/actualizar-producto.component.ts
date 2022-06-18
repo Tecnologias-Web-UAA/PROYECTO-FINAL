@@ -33,6 +33,14 @@ export class ActualizarProductoComponent implements OnInit {
     this.productoService.getProducts().subscribe(products =>{
       this.products = products;
       swal.close();
+    },err=>{
+      swal.close();
+      swal.fire({
+        allowOutsideClick: true,
+        title: "Error...",
+        text: "Algo salio mal...Revisa tu conexion a internet ",
+        confirmButtonText:'Entendido'
+      });
     });
   }
   update(id:string|undefined){
