@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AccesibilidadService } from '../shared/accesibilidad.service';
 
 @Component({
   selector: 'app-faq',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FAQComponent implements OnInit {
   costo_env:number=258.98;
   costo_ped:number=800;
-  constructor() { }
+  constructor(public accesibilidad:AccesibilidadService) { }
 
   ngOnInit(): void {
   }
