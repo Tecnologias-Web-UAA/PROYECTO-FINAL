@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
     this.auth.GoogleAuth().then((res: any) => {
       
       if (res) {
-        this.accesibilidad.changeBand();
+        this.accesibilidad.band=false;
        
         this.router.navigate(['/inicioAdmin']);
         swal.close();
@@ -86,8 +86,9 @@ export class LoginComponent implements OnInit {
       title: "Error...",
       text: "Algo salio mal...Revisa tu conexion a internet ",
       confirmButtonText:'Entendido'
+     
     });
-      
+    this.accesibilidad.band=true;
       this.router.navigate(['/sign-in']);
     });
   }

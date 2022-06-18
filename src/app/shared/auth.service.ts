@@ -21,10 +21,11 @@ export class AuthService {
         if (user) {
           user.email !== null ? (this.userData = user?.email): (this.userData = user?.phoneNumber);
           this.ngZone.run(() => {
-           
+           this.accesibilidad.band=false;
             this.router.navigate(['/inicioAdmin']);
           });
         } else {
+          this.accesibilidad.band=true;
           this.userData = null;
           this.router.navigate(['/sign-in']);
           
