@@ -13,9 +13,9 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active" routerLinkActive="active-link">
-        <a class="nav-link" [routerLink]="['/consultar']">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Consultar</span></a>
+        <a class="nav-link" [routerLink]="['/inicioUser']">
+            <i class="icon-home"></i>
+            <span>Inicio</span></a>
     </li>
    
     <li class="nav-item active" routerLinkActive="active-link">
@@ -35,5 +35,10 @@
     <!-- Heading -->
     <div class="sidebar-heading">
         Consultas
+    </div>
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle" (click)="click()"></button>
     </div>
 </ul>
