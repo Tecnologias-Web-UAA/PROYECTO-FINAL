@@ -56,7 +56,7 @@ export class AuthService {
     .then(()=>{
      
       console.log("sign-out exitoso");
-        
+      this.router.navigate(['home']);
     });
     this.accesibilidad.band=true;
     this.router.navigate(['home']);
