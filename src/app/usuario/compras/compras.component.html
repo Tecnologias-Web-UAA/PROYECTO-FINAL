@@ -25,10 +25,10 @@
                       <div *ngIf="product.cantidad > 0">
                         <img src="{{product.imagen}}" class="card-img-top" alt="...">
                       <div class="card-body">
-                        <h2 class="card-title">{{product.nombre | capitalizado:true}}</h2>
+                        <h2 class="card-title text-center">{{product.nombre | capitalizado:true}}</h2>
                         <h5>Existencia: {{product.cantidad}}</h5>
                         <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
-                        <p class="card-text"> {{product.descripcion}}</p>
+                        <p class="card-text text-justify"> {{product.descripcion}}</p>
                         </div>
                         <hr class="sidebar-divider my-0">
                         <div class="foot">
