@@ -1,7 +1,9 @@
+
 <div class="container">
     <div class="row">
         <div class="col">
-            <p class="question">¿Cómo puedo c</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Cómo puedo c</p>
         </div>
         <div class="col">
 
@@ -9,20 +11,24 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿Cómo puedo registrar en la tienda?</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Cómo puedo registrar en la tienda?</p>
         </div>
         <div class="col">
-            <p class="answer">Esto se hace con unos sencillos pasos, se registra con su correo, fecebook o numéro de celular
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="answer">Esto se hace con unos sencillos pasos, se registra con su correo, fecebook o numéro de celular
                 y de esa forma facil tendrá una cuenta en nuestra tienda. 
             </p>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿Si no estoy registardo puedo comprar en la tienda de electrónica Halcón?</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Si no estoy registardo puedo comprar en la tienda de electrónica Halcón?</p>
         </div>
         <div class="col">
-            <p class="answer">Lamentablemente si usted no esta registrado a nuestra tienda no podrá adquirir nuestros
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="answer">Lamentablemente si usted no esta registrado a nuestra tienda no podrá adquirir nuestros
                 productos, esto es para beneficio de ambas partes respaldarnos a usted y a nosotros en
                 cada una de las compras que se hagan como garantía de que su producto llegará bien y de que usted
                 es una persona real.
@@ -31,10 +37,12 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿Tienen garantía mis compras?</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Tienen garantía mis compras?</p>
         </div>
         <div class="col">
-            <p class="answer">Todos nuestros productos son {{'100' | percent}} garantizados, 
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="answer">Todos nuestros productos son {{'100' | percent}} garantizados, 
                 ya que son de alta calidad, si el producto esta dañado de fabrica tendra que contactarse con
                 nosotros e inmediatamente será atendido y nos explicará el daño,
                 nosotros lo anotaremos y tendrá que enviarnos el producto y cuando sea así se le entregará otro
@@ -44,33 +52,42 @@
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿Qué métodos de pago aceptan?</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Qué métodos de pago aceptan?</p>
         </div>
         <div class="col">
             <div class="answer">
                 <ul>
-                    <li>En OXXO con efectivo</li>
-                    <li>Ventanilla bancaria</li>
-                    <li>Con tarjeta de débito</li>
-                    <li>Con Pay-Pal</li>
+                    <li [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                    >En OXXO con efectivo</li>
+                    <li [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                    >Ventanilla bancaria</li>
+                    <li [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                    >Con tarjeta de débito</li>
+                    <li [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                    >Con Pay-Pal</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿A que partes de la Republica Mexicana tiene cobertura de envio?</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿A que partes de la Republica Mexicana tiene cobertura de envio?</p>
         </div>
         <div class="col">
-            <p class="answer">Tenemos envios acualquier parte de la Republica Mexicana</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="answer">Tenemos envios acualquier parte de la Republica Mexicana</p>
         </div>
     </div>
     <div class="row">
         <div class="col">
-            <p class="question">¿Qué costo tiene el envio?></p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="question">¿Qué costo tiene el envio?></p>
         </div>
         <div class="col">
-            <p class="answer">El envio tiene un costo {{ costo_env | currency:'$'}}, solamente los pedidos de más de {{ costo_ped | currency:'$'}}</p>
+            <p [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+            class="answer">El envio tiene un costo {{ costo_env | currency:'$'}}, solamente los pedidos de más de {{ costo_ped | currency:'$'}}</p>
         </div>
     </div>
 </div>

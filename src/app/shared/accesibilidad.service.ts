@@ -13,6 +13,7 @@ export class AccesibilidadService {
   cont:Boolean=false;
   array!:Configuracion[];
   obj!:Configuracion;
+  
   constructor() { 
     this.array = JSON.parse(localStorage.getItem('conf') || '[]');
     console.log("array: "+JSON.stringify(this.array));
@@ -48,6 +49,7 @@ export class AccesibilidadService {
   }
   aumentarFont():void{
     this.font_size++;
+    console.log("tamaño de fuente: "+this.font_size);
     this.guardarConf();
   }
   disminuirFont():void{

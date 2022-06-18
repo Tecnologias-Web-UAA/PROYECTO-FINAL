@@ -7,17 +7,44 @@
 
 </head>
 
-<body class="bg-gradient-primary">
-<div class="container">
-<div class="row">
-    <div class="col-8 col-sm-8 col-md-8 col-lg-12 col-xl-12 text-center">
-        <img src="../../assets/img/logo.PNG" alt="" width="80%">
 
+    <div class="text-center mt-5">
+        <h1 class="h4 text-gray-900 mb-4 " [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_h}">¿Tienes alguna duda?<br>Contactanos
+        </h1>
+    </div>
+    <div class="container">
+
+    <div class="row">
+       
+    <div class="col-8 col-sm-8 col-md-8 col-lg-12 col-xl-12 text-center">
+        <!-- <img src="../../assets/img/logo.PNG" alt="" width="80%"> -->
+       
+
+        <form  class="user">
+            <div class="form-group">
+                
+                <input type="email" class="form-control form-control-user"
+                    id="exampleInputEmail" aria-describedby="emailHelp"
+                    placeholder="Ingresa tu nombre..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+            </div>
+            <div class="form-group">
+                
+                <input type="email" class="form-control form-control-user"
+                    id="exampleInputEmail" aria-describedby="emailHelp"
+                    placeholder="Ingresa tu correo electrónico..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+            </div>
+            <div class="form-group">
+                
+                <input type="email" class="form-control form-control-user"
+                    id="exampleInputEmail" aria-describedby="emailHelp"
+                    placeholder="Ingresa tu pregunta..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+            </div>
+            </form>
 
     </div>
 
 
 </div>
 </div>
-</body>
+
 </html>
