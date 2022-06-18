@@ -42,7 +42,8 @@ export class LoginComponent implements OnInit {
     let {correo,contrasena}=this.myForm.value;
     this.auth.signIn(correo,contrasena).then((res)=>{
       if(res){
-        this.accesibilidad.changeBand();
+        this.accesibilidad.band=false;
+      
         this.router.navigate(['/inicioAdmin']);
         if(this.myForm.value.check){
           localStorage.setItem('datosUser',JSON.stringify(this.myForm.value));
@@ -74,9 +75,22 @@ export class LoginComponent implements OnInit {
       
       if (res) {
         this.accesibilidad.band=false;
-       
-        this.router.navigate(['/inicioAdmin']);
-        swal.close();
+        this.auth.getUserLogged().subscribe(res=>{
+          let i = this.auth.usuarios.findIndex(p => res?.email == p.email);
+          console.log("i = "+i)
+          if(i!=-1 ){
+            if(this.auth.usuarios[i].privilegios == 'admin'){
+              this.router.navigate(['/inicioAdmin']);
+              
+            }else{
+              this.router.navigate(['/inicioUser']);
+            }
+            
+          }
+        
+          swal.close();
+        });
+        
       }
     })
     .catch(err=>{
@@ -91,5 +105,8 @@ export class LoginComponent implements OnInit {
     this.accesibilidad.band=true;
       this.router.navigate(['/sign-in']);
     });
+  }
+  logInMSM(){
+    this.router.navigate(['/msmlogin']);
   }
 }

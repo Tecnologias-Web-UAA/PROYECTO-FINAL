@@ -66,11 +66,12 @@
                                         <hr>
                                         <button  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
                                         class="btn btn-google btn-user btn-block" (click)="logInGoogle()">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                            <i class="fab fa-google fa-fw"></i> Login con Google
                                         </button>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        <button [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                          class="btn btn-facebook btn-user btn-block" (click)="logInMSM()">
+                                            <i class="icon-phone-1"></i> Login con MSM
+                                        </button>
                                     </form>
                                     <hr>
                                     

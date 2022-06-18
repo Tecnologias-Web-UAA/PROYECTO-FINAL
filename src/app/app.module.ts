@@ -17,6 +17,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { UsuarioModule } from './usuario/usuario.module';
 import { FAQComponent } from './faq/faq.component';
 import { CapitalizacionPipePipe } from './pipe/capitalizacion-pipe.pipe';
+import { LoginMsmComponent } from './login-msm/login-msm.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { CapitalizacionPipePipe } from './pipe/capitalizacion-pipe.pipe';
     ContactoComponent,
     FAQComponent,
     CapitalizacionPipePipe,
+    LoginMsmComponent,
   ],
   imports: [
     BrowserModule,

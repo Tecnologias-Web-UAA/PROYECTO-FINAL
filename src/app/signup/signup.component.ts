@@ -32,6 +32,7 @@ export class SignupComponent implements OnInit {
     let {correo,contrasena}=this.myForm.value;
     this.auth.signUp(correo,contrasena).then((res)=>{
       console.log("registrado exitosamente");
+      this.auth.SendVerificationMail();
     });
   }
   //Contraseñas iguales....validacioens personalizadas en reactive Forms

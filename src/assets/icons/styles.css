@@ -131,3 +131,12 @@
 .icon-qrcode:before {
   content: "\45";
 }
+.icon-mobile:before {
+  content: "\46";
+}
+.icon-phone:before {
+  content: "\47";
+}
+.icon-phone-1:before {
+  content: "\48";
+}

@@ -22,6 +22,7 @@ import { GenerarQrComponent } from './usuario/generar-qr/generar-qr.component';
 import { GraficaExistenciasProdComponent } from './administrador/grafica-existencias-prod/grafica-existencias-prod.component';
 import { ConsultaUsersComponent } from './administrador/consulta-users/consulta-users.component';
 import { ConsultaVentasComponent } from './administrador/consulta-ventas/consulta-ventas.component';
+import { LoginMsmComponent } from './login-msm/login-msm.component';
 
 
 const routes: Routes = [
@@ -32,7 +33,7 @@ const routes: Routes = [
   {'path':'app',component:AppComponent},
   {'path':'home',component:HomeComponent},
   {'path':'contacto',component:ContactoComponent},
-  
+  {'path':'msmlogin',component:LoginMsmComponent},
   //seccion Admin
   {'path':'inicioAdmin',component:InicioComponent},
   {'path':'altas',component:AltasComponent},
