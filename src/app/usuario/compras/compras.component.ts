@@ -24,7 +24,7 @@ export class ComprasComponent implements OnInit {
   datosVenta!:Ventas;
   compraProducto!:Producto;
   paises: any[] = [];
-  precio:number=0;
+  product!:any;
 
   constructor(private productoService:ProductoService, private peticionesServicio:PeticionesService, private ventaService:VentaService, private authService:AuthService, private httpCliente: HttpClient, private router:Router) { 
     this.httpCliente.get('https://restcountries.com/v2/lang/es').subscribe(
@@ -56,7 +56,6 @@ export class ComprasComponent implements OnInit {
     this.peticionesServicio.comprarProducto(id).subscribe((resul:any) => {
       this.msgCompra = resul.msg;
       this.compraProducto = resul.producto
-      console.log('Cantidad nueva = '+resul.cantidadnew, this.compraProducto);
       swal.close();
     });
 
@@ -72,18 +71,18 @@ export class ComprasComponent implements OnInit {
     swal.showLoading();
     this.peticionesServicio.comprarProducto(id).subscribe((resul:any) => {
       this.msgCompra = resul.msg;
-      this.precio = resul.precio;
+      this.product = resul.producto;
       /* console.log(precio);
       console.log('Cantidad nueva = '+resul.cantidadnew); */
       let user = this.authService.getUserLogged().subscribe((res:any) =>{
-
+        let aleatorio = this.random();
         this.datosVenta = {
           correoUsario: res.email,
-          costo:  this.precio,
-          idProducto: id,
-          paisOrigen: this.paises[this.random()].name,
+          costo:  this.product.precio,
+          imgProducto: this.product.imagen,
+          paisOrigen: this.paises[aleatorio].flag,
+          nombrePais: this.paises[aleatorio].name,
         }
-  
         this.ventaService.addVenta(this.datosVenta)
       });
       swal.close();

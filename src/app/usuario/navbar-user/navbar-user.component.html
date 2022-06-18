@@ -3,9 +3,9 @@
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+            <img [src]="imagenLogIn" alt="" width="35" height="35">
         </div>
-        <div class="sidebar-brand-text mx-3" >USUARIO LOGUIADO <sup>*</sup></div>
+        <div class="sidebar-brand-text mx-3" >{{ user }}</div>
     </a>
 
     <!-- Divider -->
@@ -13,14 +13,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active" routerLinkActive="active-link">
-        <a class="nav-link" [routerLink]="['/consultar']">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Consultar</span></a>
+        <a class="nav-link" [routerLink]="['/inicioUser']">
+            <i class="icon-home"></i>
+            <span>Inicio</span></a>
     </li>
    
     <li class="nav-item active" routerLinkActive="active-link">
         <a class="nav-link" [routerLink]="['/compras']">
-            <i class="fas fa-fw fa-tachometer-alt" ></i>
+            <i class="icon-shopping-cart" ></i>
             <span>Comprar</span></a>
     </li>
      
@@ -35,5 +35,10 @@
     <!-- Heading -->
     <div class="sidebar-heading">
         Consultas
+    </div>
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle" (click)="click()"></button>
     </div>
 </ul>
