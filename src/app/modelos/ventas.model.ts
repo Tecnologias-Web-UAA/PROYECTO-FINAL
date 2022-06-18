@@ -2,6 +2,7 @@ export interface Ventas {
     id?: string;
     correoUsario: string;
     costo: number;
-    idProducto: string;
+    imgProducto: string;
     paisOrigen: string;
+    nombrePais: string;
 }

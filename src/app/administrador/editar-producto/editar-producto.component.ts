@@ -28,7 +28,7 @@ export class EditarProductoComponent implements OnInit {
   porcentaje!:Observable<number|any>;
   imageUrl:string='../../../assets/img/upload.png';
   myImages:any[]=[];
-  band_select:boolean=false;
+  band_select:boolean=true;
   dirImagen!:string;
   constructor(private producto:ProductoService,private activatedRoute:ActivatedRoute,private router:Router,
     private storage:AngularFireStorage) {
