@@ -43,8 +43,22 @@ export class LoginComponent implements OnInit {
     this.auth.signIn(correo,contrasena).then((res)=>{
       if(res){
         this.accesibilidad.band=false;
-      
-        this.router.navigate(['/inicioAdmin']);
+        this.accesibilidad.band=false;
+        this.auth.getUserLogged().subscribe(res=>{
+          let i = this.auth.usuarios.findIndex(p => res?.email == p.email);
+          console.log("i = "+i)
+          if(i!=-1 ){
+            if(this.auth.usuarios[i].privilegios == 'admin'){
+              this.router.navigate(['/inicioAdmin']);
+              
+            }else{
+              this.router.navigate(['/inicioUser']);
+            }
+            
+          }
+        
+          swal.close();
+        });
         if(this.myForm.value.check){
           localStorage.setItem('datosUser',JSON.stringify(this.myForm.value));
         }
