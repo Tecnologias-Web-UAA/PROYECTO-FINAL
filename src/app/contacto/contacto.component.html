@@ -19,27 +19,41 @@
     <div class="col-8 col-sm-8 col-md-8 col-lg-12 col-xl-12 text-center">
         <!-- <img src="../../assets/img/logo.PNG" alt="" width="80%"> -->
        
+        <form [formGroup]="datos">
+            <div class="row justify-content-center">
+            <div class="col-lg-4 fondo">
+              <h4 class="text-center p-2">Enviar correos</h4>
+              <input type="email" placeholder="correo" class="form-control" formControlName="correo" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"><br>
+              <input type="text" placeholder="asunto" class="form-control" formControlName="asunto" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"><br>
+              <textarea class="form-control" placeholder="Mensaje" cols="100" rows="10" formControlName="msj" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"></textarea>
+              <div class="text-center p-2">
+              <button class="btn btn-outline-danger" (click)="envio()">Enviar</button>
+              </div>
+            </div>
+            </div>
+          </form>
+        <!-- <form  class="user" >
 
-        <form  class="user">
-            <div class="form-group">
+            <div class="form-group" [formGroup]="datos">
                 
-                <input type="email" class="form-control form-control-user"
+                <input type="email" class="form-control form-control-user" formControlName="correo"
                     id="exampleInputEmail" aria-describedby="emailHelp"
                     placeholder="Ingresa tu nombre..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
             </div>
             <div class="form-group">
                 
-                <input type="email" class="form-control form-control-user"
+                <input type="text" class="form-control form-control-user" formControlName="asunto"
                     id="exampleInputEmail" aria-describedby="emailHelp"
-                    placeholder="Ingresa tu correo electrónico..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+                    placeholder="Asunto de correo" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
             </div>
             <div class="form-group">
                 
-                <input type="email" class="form-control form-control-user"
+                <input type="text" class="form-control form-control-user" formControlName="msj"
                     id="exampleInputEmail" aria-describedby="emailHelp"
-                    placeholder="Ingresa tu pregunta..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+                    placeholder="¿En que podemos ayudarte?" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
             </div>
-            </form>
+            <button class="btn btn-outline-danger" (click)="envio()">Enviar</button>
+            </form> -->
 
     </div>
 

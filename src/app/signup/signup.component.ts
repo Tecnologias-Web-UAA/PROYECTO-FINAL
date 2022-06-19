@@ -12,8 +12,7 @@ export class SignupComponent implements OnInit {
  
   constructor(private auth:AuthService) { 
     this.myForm=new FormGroup({
-      'nombre':new FormControl('',[Validators.required]),
-      'direccion':new FormControl('',),
+      
       'correo':new FormControl('',[Validators.required,Validators.email]),
       'contrasena':new FormControl('',[Validators.required,Validators.minLength(7)]),
       'contrasena2':new FormControl('',[Validators.required,Validators.minLength(7)]),
@@ -33,6 +32,7 @@ export class SignupComponent implements OnInit {
     let {correo,contrasena}=this.myForm.value;
     this.auth.signUp(correo,contrasena).then((res)=>{
       console.log("registrado exitosamente");
+      this.auth.SendVerificationMail();
     });
   }
   //Contraseñas iguales....validacioens personalizadas en reactive Forms

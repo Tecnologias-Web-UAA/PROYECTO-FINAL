@@ -21,8 +21,10 @@ export class NavbarAdminComponent implements OnInit {
     });
     swal.showLoading();
     this.authService.getUserLogged().subscribe((res:any)=>{
-      this.user = res.displayName;
-      this.imagenLogIn = res.photoURL;
+
+      this.user = res?.displayName;
+      this.imagenLogIn = res?.photoURL;
+
       swal.close();
     },err=>{
       swal.close();

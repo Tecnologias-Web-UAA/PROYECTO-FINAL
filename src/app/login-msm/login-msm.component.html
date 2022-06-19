@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  
+
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1  [ngStyle]="{'font-size.px':accesibilidad.font_size+10,'font-family':accesibilidad.font_h}" 
+                                        class="h4 text-gray-900 mb-4">Log In con Código a traves del celular</h1>
+                                    </div>
+                                    <form class="user" [formGroup]="myFormNumber" >
+                                        <div class="form-group">
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myFormNumber.get('numero')?.errors?.['minlength']">Número invalido (debe tener al menos 10 caracteres)</p>
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myFormNumber.get('numero')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Ingresa el número telefónico..." formControlName="numero"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+                                                <button  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"  
+                                            class="btn btn-primary btn-user btn-block mt-3" [disabled]="myFormNumber.invalid" (click)="sendCode()"s>
+                                            Enviar código
+                                        </button>
+                                        </div>
+                                        <div id="recaptcha-container" class="form-group"></div>
+                                    </form>
+                                    <hr>
+                                     <form class="user" [formGroup]="myFormCode">  
+                                        <div class="form-group">
+                                            <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+                                            *ngIf="this.myFormCode.get('codigo')?.errors?.['required']">El campo no puede quedar vacio</p>
+                                            
+                                            <input type="email" class="form-control form-control-user"
+                                                id="exampleInputEmail" aria-describedby="emailHelp"
+                                                placeholder="Ingresa el código que se te proporciono..." formControlName="codigo"
+                                                [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
+                                                <button  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"  
+                                                class="btn btn-primary btn-user btn-block mt-3" [disabled]="myFormCode.invalid" (click)="verify()">
+                                            Login
+                                        </button>
+                                        </div>
+                                        
+                                    </form>
+                                     
+                                   
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
