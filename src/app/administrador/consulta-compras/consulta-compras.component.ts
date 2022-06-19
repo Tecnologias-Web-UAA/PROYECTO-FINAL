@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Compra } from 'src/app/modelos/compra.model';
+import { AuthService } from 'src/app/shared/auth.service';
 import { PeticionesService } from 'src/app/shared/peticiones.service';
 import swal from 'sweetalert2';
 @Component({
@@ -13,13 +14,14 @@ export class ConsultaComprasComponent implements OnInit {
   compras!:Compra[];
   id_doc!:string[];
   sum:number=0;
-  constructor(private peticiones:PeticionesService,private router:Router) { }
+  constructor(private auth:AuthService,private peticiones:PeticionesService,private router:Router) { }
 
   ngOnInit(): void {
     swal.fire({
       allowOutsideClick: false,
       title: "Cargando...",
       text: "Espere por favor",
+      confirmButtonText:'Entendido'
     });
     swal.showLoading();
     this.peticiones.consultaTodo('consultaTodo','compras').subscribe((res:any)=>{

@@ -28,8 +28,10 @@ export class ActualizarProductoComponent implements OnInit {
       allowOutsideClick: false,
       title: "Cargando...",
       text: "Espere por favor",
+    }).then(res=>{
+      swal.showLoading();
+    
     });
-    swal.showLoading();
     this.productoService.getProducts().subscribe(products =>{
       this.products = products;
       swal.close();

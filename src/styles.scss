@@ -137,6 +137,34 @@ body{
      background-attachment: fixed !important;
      background-size: 100% 100% !important;
 }
+//seccion para usuarios logueados y admin
+.sidebar .nav-item a i{
+    font-size: 2em !important;
+
+}
+.sidebar .nav-item a span{
+    font-size: 1em !important;
+
+}
+.sidebar .nav-item:hover
+{
+    background:rgb(66, 199, 155); 
+}
+.topbar .nav-item:hover{
+    background:rgb(119, 219, 186) !important; 
+    border-radius: 20px;
+    box-shadow: 2px 3px 5px;
+    a span{
+        color: black !important;
+        font-weight: 800;
+        font-style: oblique !important;
+    }
+    
+}
+
+
+
+//termina seccion para usuarios logueados y admin
 @media only screen and(max-width:476px){
     input[type="file"]{
         width: 200px;
