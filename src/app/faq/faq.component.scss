@@ -1,7 +1,7 @@
 p,ul{
     color: black;
     text-align: justify;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255, 255, 255, 0.567);
     border-radius: 20px;
     padding: 1em;
 }
@@ -13,4 +13,15 @@ li{
 }
 .container{
     padding: 2em;
+}
+
+.question{
+    font-family: monospace;
+    font-weight: bold;
+    
+}
+
+.answer{
+    font-family: 'Arial';
+    text-align: justify;
 }

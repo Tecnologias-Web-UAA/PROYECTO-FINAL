@@ -30,7 +30,7 @@
                                     <form class="user" [formGroup]="myFormNumber" >
                                         <div class="form-group">
                                             <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
-                                            *ngIf="this.myFormNumber.get('numero')?.errors?.['minlength']">Número invalido (debe tener al menos 10 caracteres)</p>
+                                            *ngIf="this.myFormNumber.get('numero')?.errors?.['minlength']">Número invalido (debe tener al menos 12 caracteres)</p>
                                             <p  [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
                                             *ngIf="this.myFormNumber.get('numero')?.errors?.['required']">El campo no puede quedar vacio</p>
                                             

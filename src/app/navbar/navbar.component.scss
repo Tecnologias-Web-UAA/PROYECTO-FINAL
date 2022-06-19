@@ -38,6 +38,10 @@ a{
 li a{
     color: antiquewhite !important;
     font-size: 1.5em;
+    font-family: 'Sans_slab';
+    background: rgba(145, 118, 118, 0.688);
+    border-radius: 20px;
+    margin: 5px;
 }
 .active{
     color:black !important;

@@ -33,7 +33,7 @@
     </div>
     <li class="nav-item active" routerLinkActive="active-link">
         <a class="nav-link" [routerLink]="['/comprasHechas']">
-            <i class="icon-shopping-cart" ></i>
+            <i class="icon-credit-card" ></i>
             <span>Tickets de compra por producto</span></a>
     </li>
 
@@ -44,4 +44,12 @@
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle" (click)="click()"></button>
     </div>
+
+    <!-- Sidebar Message -->
+    <div class="sidebar-card d-none d-lg-flex">
+        <img class="sidebar-card-illustration mb-2" src="assets/img/undraw_rocket.svg" alt="...">
+        <p class="text-center mb-2"><strong></strong> No olvides reportar inconsistencias en el sistema para seguir mejorando nuestra app...</p>
+        
+    </div>
+
 </ul>

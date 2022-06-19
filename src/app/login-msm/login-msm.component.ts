@@ -15,7 +15,7 @@ export class LoginMsmComponent implements OnInit {
   recaptchaVerifier: any;
   constructor(public accesibilidad:AccesibilidadService,public authService:AuthService) { 
     this.myFormNumber = new FormGroup({
-      'numero':new FormControl('',[Validators.required,Validators.minLength(10)]),
+      'numero':new FormControl('',[Validators.required,Validators.minLength(12)]),
 
     });
     this.myFormCode = new FormGroup({
