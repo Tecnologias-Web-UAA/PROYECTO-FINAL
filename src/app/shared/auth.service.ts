@@ -72,7 +72,14 @@ export class AuthService {
   signUp(correo:string,contrasena:string){
     return this.afauth.createUserWithEmailAndPassword(correo, contrasena)
     .catch((error) => {
-      window.alert(error.message);
+      swal.fire({
+        allowOutsideClick: true,
+        title: "Error...",
+        icon:'error',
+        text: error,
+        confirmButtonText:'Entendido'
+       
+      });
     });
   }
 
@@ -154,7 +161,7 @@ export class AuthService {
         var obj = {
           'name':correo,
           'email': correo,
-          'uid': res.uid,
+          'uid': user?.uid,
           'provider':'firebase',
           'photo':'assets/img/logo_halcon.png',
           'privilegios':'user'
