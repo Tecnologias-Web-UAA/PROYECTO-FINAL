@@ -23,6 +23,7 @@ import { GraficaExistenciasProdComponent } from './administrador/grafica-existen
 import { ConsultaUsersComponent } from './administrador/consulta-users/consulta-users.component';
 import { ConsultaVentasComponent } from './administrador/consulta-ventas/consulta-ventas.component';
 import { LoginMsmComponent } from './login-msm/login-msm.component';
+import { ComprasHechasComponent } from './usuario/compras-hechas/compras-hechas.component';
 
 
 const routes: Routes = [
@@ -52,7 +53,8 @@ const routes: Routes = [
   {'path':'consultaCompras',component:ConsultaComprasComponent},
   {'path':'compras',component:ComprasComponent},
   {'path':'qr/:nombre/:id/:cantidad/:precio/:descripcion/:img', component:GenerarQrComponent},
-  {'path':'graficaExistenciaProd', component:GraficaExistenciasProdComponent}
+  {'path':'graficaExistenciaProd', component:GraficaExistenciasProdComponent},
+  {'path':'comprasHechas',component:ComprasHechasComponent}
 
 
 ];

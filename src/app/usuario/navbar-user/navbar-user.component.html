@@ -23,12 +23,7 @@
             <i class="icon-shopping-cart" ></i>
             <span>Comprar</span></a>
     </li>
-     
-    <!-- <li class="nav-item active" routerLinkActive="active-link">
-        <a class="nav-link" [routerLink]="['/graficar']">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Grafica</span></a>
-    </li> -->
+
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -36,7 +31,15 @@
     <div class="sidebar-heading">
         Consultas
     </div>
+    <li class="nav-item active" routerLinkActive="active-link">
+        <a class="nav-link" [routerLink]="['/comprasHechas']">
+            <i class="icon-shopping-cart" ></i>
+            <span>Tickets de compra por producto</span></a>
+    </li>
 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    
     <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle" (click)="click()"></button>

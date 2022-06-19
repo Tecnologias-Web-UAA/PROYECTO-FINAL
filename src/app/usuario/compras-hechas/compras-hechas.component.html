@@ -1,11 +1,10 @@
-
-  <body id="page-top">
+<body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-       <app-navbar-admin  [band]="!band"></app-navbar-admin>
+        <app-navbar-user [band]="band"></app-navbar-user>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -15,54 +14,45 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <app-topbar (emitBand)="click()"></app-topbar>
+                <app-navbar-top-user (emitBand)="click()"></app-navbar-top-user>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="row">
-                    <div class="col-4 col-sm-6 col-md-8 col-lg-12">
+                    <div class="col-4 col-sm-6 col-md-8 col-lg-12" *ngIf="comprasHechas.length > 0 else nopeticion">
                         
                          
                           
-                          <table class="table">
+                        <table class="table">
                             <thead class="table-primary">
-                              <tr>
-                                <th scope="col">Nombre</th>
-                                <th scope="col">Correo</th>
-                                <th scope="col">UID</th>
-                                <th scope="col">Foto</th>
-                              </tr>
+                                <tr>
+                                    <th scope="col">ID Ticket</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Origen del producto</th>
+                                    <th scope="col">Bandera del Pais de origen</th>
+                                    <th scope="col">Costo</th>
+                                </tr>
                             </thead>
                             <tbody>
-                              <tr *ngFor="let user of users" class="table-success">
+                              <tr *ngFor="let compra of comprasHechas" class="table-success">
                                
-                                <td>{{user.name}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{user.uid}}</td>
-                                <td><img src="{{user.photo}}" alt="" width="100px"></td>
+                                <td>{{compra.id}}</td>
+                                <td><img src="{{compra.imgProducto}}" alt="" width="100px"></td>
+                                <td>{{compra.nombrePais}}</td>
+                                <td>{{compra.paisOrigen}}</td>
+                                <td>{{compra.costo}}</td>
                               </tr>
                               
                             </tbody>
-                          </table>
-<!-- 
-                        <table >
-                            <tr >
-                                <th>Nombre</th>
-                                <th>Correo</th>
-                                <th>UID</th>
-                                <th>Foto</th>
-                               
-                            </tr>
-                            <tr *ngFor="let user of users">
-                                <td>{{user.name}}</td>
-                                <td>{{user.email}}</td>
-                                <td>{{user.uid}}</td>
-                                <td><img src="{{user.photo}}" alt="" width="100px"></td>
-                            </tr>
-                        </table> -->
+                        </table>
+                        <div class="gasto">
+                            <h4>Total gasto en compras = ${{ saldo | number: '.0-3'}}</h4>
+                        </div>
                     </div>
+                    <ng-template #nopeticion>
+                        <h3>No hay compras aun en este Usuario, dale un vistazo en nuestra sección de compras...</h3>
+                    </ng-template>
                 </div>
-                
                 <!-- /.container-fluid -->
 
             </div>
@@ -112,5 +102,3 @@
  
 
 </body>
-
-
