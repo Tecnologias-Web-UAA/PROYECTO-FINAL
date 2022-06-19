@@ -173,6 +173,12 @@ body{
     input[type="file"]{
         width: 200px;
     }
+    .name-store{
+        display: none;
+    }
+    #logo{
+        display: none;
+    }
 }
 @media only screen and(max-width:1120px) {
     .foot{
@@ -207,6 +213,9 @@ body{
         content: attr(data-th);
         display: block;
         text-align:center;
+    }
+    .lema-top{
+        display: none;
     }
 }
 

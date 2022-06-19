@@ -143,3 +143,9 @@
 .icon-credit-card:before {
   content: "\49";
 }
+.icon-envelope:before {
+  content: "\4a";
+}
+.icon-mail:before {
+  content: "\4b";
+}

@@ -1,5 +1,14 @@
-// body{
-//     position: absolute;
-//     height: 100%;
-//     width: 100%;
-// }
+.crear-cuenta{
+    font-size: 1em !important;
+    text-shadow: 1px 2px 4px;
+    border: dotted;
+    padding: 1em;
+    border-radius: 15px;
+    background: rgb(99, 245, 99);
+    color: rgb(21, 0, 139);
+}
+.crear-cuenta:hover{
+    background: rgb(68, 204, 204);
+    color: black;
+    
+}
