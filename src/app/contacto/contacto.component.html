@@ -9,7 +9,7 @@
 
 
     <div class="text-center mt-5">
-        <h1 class="h4 text-gray-900 mb-4 " [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_h}">¿Tienes alguna duda?<br>Contactanos
+        <h1 [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_h}">¿Tienes alguna duda?<br>Contactanos
         </h1>
     </div>
     <div class="container">
@@ -21,39 +21,20 @@
        
         <form [formGroup]="datos">
             <div class="row justify-content-center">
-            <div class="col-lg-4 fondo">
-              <h4 class="text-center p-2">Enviar correos</h4>
+            <div class="col-lg-12 fondo">
+              <h4 [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_h}"
+              >Enviar correos</h4>
               <input type="email" placeholder="correo" class="form-control" formControlName="correo" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"><br>
               <input type="text" placeholder="asunto" class="form-control" formControlName="asunto" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"><br>
               <textarea class="form-control" placeholder="Mensaje" cols="100" rows="10" formControlName="msj" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"></textarea>
               <div class="text-center p-2">
-              <button class="btn btn-outline-danger" (click)="envio()">Enviar</button>
+              <button [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}"
+               class="btn btn-info" (click)="envio()">Enviar</button>
               </div>
             </div>
             </div>
           </form>
-        <!-- <form  class="user" >
-
-            <div class="form-group" [formGroup]="datos">
-                
-                <input type="email" class="form-control form-control-user" formControlName="correo"
-                    id="exampleInputEmail" aria-describedby="emailHelp"
-                    placeholder="Ingresa tu nombre..." [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
-            </div>
-            <div class="form-group">
-                
-                <input type="text" class="form-control form-control-user" formControlName="asunto"
-                    id="exampleInputEmail" aria-describedby="emailHelp"
-                    placeholder="Asunto de correo" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
-            </div>
-            <div class="form-group">
-                
-                <input type="text" class="form-control form-control-user" formControlName="msj"
-                    id="exampleInputEmail" aria-describedby="emailHelp"
-                    placeholder="¿En que podemos ayudarte?" [ngStyle]="{'font-size.px':accesibilidad.font_size,'font-family':accesibilidad.font_p}">
-            </div>
-            <button class="btn btn-outline-danger" (click)="envio()">Enviar</button>
-            </form> -->
+     
 
     </div>
 

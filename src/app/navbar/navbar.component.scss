@@ -6,11 +6,18 @@
 #logo{
     border: 5px double;
     border-radius: 50%;
+    box-shadow: 5px 6px 5px;
 }
 //accesibilidad
 [class^="icon-"]{
     font-size: 40px;
     color:black;
+    text-shadow: 1px 3px 4px;
+}
+[class^="icon-d"]{
+    font-size: 40px;
+    color:antiquewhite;
+    text-shadow: 1px 3px 4px;
 }
 a{
     cursor: pointer;
@@ -29,5 +36,15 @@ a{
 }
 /////termina accesibilidad
 li a{
+    color: antiquewhite !important;
     font-size: 1.5em;
+}
+.active{
+    color:black !important;
+    text-shadow: 1px 2px 6px !important;
+}
+h2{
+    color:white;
+    text-shadow: 2px 1px 5px;
+    font-style: oblique;
 }

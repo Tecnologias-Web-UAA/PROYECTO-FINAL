@@ -10,6 +10,7 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class TopbarComponent implements OnInit {
   user!:any;
   band:Boolean=false;
+  img:any="assets/img/undraw_profile.svg";
   @Output() emitBand=new EventEmitter<Boolean>();
   constructor(private auth:AuthService) { }
 
@@ -25,7 +26,13 @@ export class TopbarComponent implements OnInit {
   }
   getEmail(){
     this.auth.getUserLogged().subscribe(res=>{
-      this.user = res?.email;
+      this.user = res?.email,
+      this.img  = res?.photoURL 
+      if(this.img!=undefined){
+
+      }else{
+        this.img="assets/img/undraw_profile.svg";
+      }
     }); 
   }
 }

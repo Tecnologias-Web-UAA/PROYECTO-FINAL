@@ -10866,9 +10866,10 @@ a:focus {
 }
 
 .bg-login-image {
-  background: url("../img/whoare.png");
+  background: url("../img/log.png");
   background-position: center;
   background-size: cover;
+  background-size: 50%;
 }
 
 .bg-register-image {

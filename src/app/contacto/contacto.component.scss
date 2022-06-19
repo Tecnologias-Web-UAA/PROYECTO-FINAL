@@ -2,10 +2,32 @@ img{
     margin-top: 4em;
     border-radius: 20px;
 }
-input{
+input,textarea{
     width: 300px;
+}
+textarea{
+    height: 100px;
 }
 .container{
     display: flex;
     justify-content: center;
+}
+h4,h1{
+    color: white;
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    padding:1em;
+    box-sizing: border-box;
+    font-style: italic;
+}
+h1{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+    text-shadow: 2px 1px 5px;
+}
+button{
+    color:black;
+    font-style: oblique;
+    font-weight: 800;
 }

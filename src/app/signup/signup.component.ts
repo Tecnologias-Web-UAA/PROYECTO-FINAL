@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormControl,Validator, Validators } from '@angular/forms';
+import { AccesibilidadService } from '../shared/accesibilidad.service';
 import { AuthService } from '../shared/auth.service';
 import { ValidacionPropia } from './ValidacionPropia';
 @Component({
@@ -10,7 +11,7 @@ import { ValidacionPropia } from './ValidacionPropia';
 export class SignupComponent implements OnInit {
   myForm!:FormGroup;
  
-  constructor(private auth:AuthService) { 
+  constructor(private auth:AuthService,public accesibilidad:AccesibilidadService) { 
     this.myForm=new FormGroup({
       
       'correo':new FormControl('',[Validators.required,Validators.email]),

@@ -59,7 +59,7 @@ export class AccesibilidadService {
   }
   establecerFont(){
     if(this.comb==1){
-      this.font_h="Rowdies,cursive";
+      this.font_h="Sherika";
       this.font_p="Prompt,sans-serif";
      
     }else if(this.comb==2){

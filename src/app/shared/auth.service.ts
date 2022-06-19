@@ -22,14 +22,22 @@ export class AuthService {
   usuarios:User[] = [];
   constructor(private afauth:AngularFireAuth,private router:Router,private accesibilidad:AccesibilidadService
     ,public ngZone: NgZone,private peticiones:PeticionesService) { 
-
+      this.getUsers();
 
       this.afauth.onAuthStateChanged((user) => {
         if (user) {
           user.email !== null ? (this.userData = user?.email): (this.userData = user?.phoneNumber);
           this.ngZone.run(() => {
-           this.accesibilidad.band=false;
-            this.router.navigate(['/inicioAdmin']);
+            this.accesibilidad.band=false;
+            let i = this.usuarios.findIndex(p => p.email==user.email);
+            console.log("user: "+user.email)
+            console.log("privilegios: "+i+" "+this.usuarios[i].privilegios);
+            if(this.usuarios[i].privilegios=='admin'){
+              this.router.navigate(['/inicioAdmin']);
+            }else{
+              this.router.navigate(['/inicioUser']);
+            }
+            
           });
         } else {
           this.accesibilidad.band=true;
