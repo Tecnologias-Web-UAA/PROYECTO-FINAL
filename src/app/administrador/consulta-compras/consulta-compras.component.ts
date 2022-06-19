@@ -21,7 +21,8 @@ export class ConsultaComprasComponent implements OnInit {
       allowOutsideClick: false,
       title: "Cargando...",
       text: "Espere por favor",
-      confirmButtonText:'Entendido'
+      confirmButtonText:'Entendido',
+      timer:10000
     });
     swal.showLoading();
     this.peticiones.consultaTodo('consultaTodo','compras').subscribe((res:any)=>{

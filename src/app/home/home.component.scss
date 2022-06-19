@@ -4,3 +4,19 @@
 body{
     height: 100vh;
 }
+.lema p,.lema footer{
+    text-align: center !important;
+    color: black;
+    font-style: oblique;
+
+}
+.lema{
+    border-left: 5px dashed  rgb(66, 199, 155); 
+    border-right: 5px dashed rgb(66, 199, 155);
+    border-top: 5px dashed rgb(66, 199, 155);
+    border-bottom: 5px dashed rgb(66, 199, 155);
+    
+}
+.card-text{
+    text-align: justify;
+}
