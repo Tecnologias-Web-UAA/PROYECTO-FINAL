@@ -43,7 +43,7 @@ export class InicioComponent implements OnInit {
         confirmButtonText:'Entendido'
       });
       });
-      this.auth.setUser();
+      this.auth.setUser("");
       
       
     }

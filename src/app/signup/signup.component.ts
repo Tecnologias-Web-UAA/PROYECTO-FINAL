@@ -31,12 +31,13 @@ export class SignupComponent implements OnInit {
    
     console.log(this.myForm.value);
     let {correo,contrasena}=this.myForm.value;
-    this.auth.signUp(correo,contrasena).then((res)=>{
-      // this.auth.setUser();
-      this.auth.setSignUp(res);
-      console.log(res);
-      this.auth.SendVerificationMail();
-    });
+    this.auth.setSignUp(correo,contrasena);
+    // this.auth.signUp(correo,contrasena).then((res)=>{
+    //   // this.auth.setUser();
+    //   this.auth.setSignUp(res);
+    //   console.log(res);
+    //   // this.auth.SendVerificationMail();
+    // });
   }
   //Contraseñas iguales....validacioens personalizadas en reactive Forms
   //link de consulta...

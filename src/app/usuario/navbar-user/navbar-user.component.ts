@@ -11,7 +11,7 @@ export class NavbarUserComponent implements OnInit {
 
   @Input() band:Boolean=false;
   user:string='hola';
-  imagenLogIn!:any;
+  imagenLogIn:any="assets/img/undraw_profile.svg";
 
   constructor(private authService:AuthService) { 
     swal.fire({
@@ -23,6 +23,11 @@ export class NavbarUserComponent implements OnInit {
     this.authService.getUserLogged().subscribe((res:any)=>{
       this.user = res?.displayName;
       this.imagenLogIn = res?.photoURL;
+      if(this.imagenLogIn!=undefined){
+
+      }else{
+        this.imagenLogIn='assets/img/undraw_profile.svg';
+      }
       swal.close();
     },err=>{
       swal.close();

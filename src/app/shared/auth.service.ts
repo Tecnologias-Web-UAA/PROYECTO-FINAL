@@ -32,14 +32,14 @@ export class AuthService {
           this.ngZone.run(() => {
             this.accesibilidad.band=false;
             let i = this.usuarios.findIndex(p => p.email==user.email);
-            console.log("user: "+user.email)
-            console.log("privilegios: "+i+" "+this.usuarios[i].privilegios);
-            if(this.usuarios[i].privilegios=='admin'){
-              this.router.navigate(['/inicioAdmin']);
-            }else{
+            console.log("user: "+this.userData)
+            if(i!=-1){
+              if(this.usuarios[i].privilegios=='admin'){
+                this.router.navigate(['/inicioAdmin']);
+              }else{
               this.router.navigate(['/inicioUser']);
             }
-            
+          }
           });
         } else {
           this.accesibilidad.band=true;
@@ -94,7 +94,7 @@ export class AuthService {
   }
   //metodo que se encarga de dar de alta al usuario que se registra por primera vez en la coleccion usuario,
   //para despues consultar todos los usuarios en la cuenta de admin..
-  setUser(){
+  setUser(tipo:string){
     let auth:any = getAuth();
     if(auth){
 
@@ -103,7 +103,16 @@ export class AuthService {
     }
     let profile:any = auth.currentUser;
     if (profile !== null) {
-     
+        if(tipo=="phone"){
+          this.obj = {
+            'name':profile.phoneNumber,
+            'email': profile.phoneNumber,
+            'uid': profile.uid,
+            'provider':profile.providerId,
+            'photo':'assets/img/logo_halcon.png',
+            'privilegios':'user'
+          };
+        }else{
         // user.providerData.forEach((profile:any) => {
          this.obj = {
           'name':profile.displayName,
@@ -114,7 +123,7 @@ export class AuthService {
           'privilegios':'user'
         };
         
-        
+      }
         console.log(this.obj)
         
       // });
@@ -137,41 +146,49 @@ export class AuthService {
 
 
 
-  setSignUp(obj:any){
-    this.signIn(obj.correo,obj.contrasena).then();
-    let auth:any = getAuth();
-    
-    let profile:any = auth.currentUser;
-    if (profile !== null) {
-      
-        // user.providerData.forEach((profile:any) => {
-         this.obj = {
-          'name':profile.displayName,
-          'email': profile.email,
-          'uid': profile.uid,
-          'provider':profile.providerId,
-          'photo':profile.photoURL,
+  setSignUp(correo:string,contrasena:string){
+      this.signUp(correo,contrasena).then((res:any)=>{
+        let at = getAuth();
+        let user = at.currentUser;
+        console.log("uid: "+user?.uid);
+        var obj = {
+          'name':correo,
+          'email': correo,
+          'uid': res.uid,
+          'provider':'firebase',
+          'photo':'assets/img/logo_halcon.png',
           'privilegios':'user'
         };
-        
-        
-        console.log(this.obj)
-        
-      // });
-      let array:any[] = [];
-      this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
-        array = res.myarray;
-        let i = array.findIndex(p=>p.email == this.obj.email);
-        if(i == -1){
-          this.peticiones.altas(this.obj,'altaAlgo/usuario').subscribe(res=>{
-            console.log(res)
-          });
-        }
+        let array:any[] = [];
+        this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
+          array = res.myarray;
+          let i = array.findIndex(p=>p.email == obj.email);
+          if(i == -1){
+            this.peticiones.altas(obj,'altaAlgo/usuario').subscribe(res=>{
+              console.log(res)
+              swal.fire({
+                allowOutsideClick: true,
+                title: "Registro Exitoso...",
+                icon:'success',
+                text: "Disfruta de todos los beneficios de ser usuario. Bienvenido!",
+                confirmButtonText:'Entendido'
+               
+              });
+              if(obj.privilegios=="admin"){
+                this.router.navigate(['inicioAdmin']);
+              }else{
+                this.router.navigate(['inicioUser']);
+              
+              }
+              this.SendVerificationMail();
+            });
+          }
+        });
+
+
       });
-      
-      
-    }
-   this.signOut();
+   
+   
   }
    // Envío de verificación de email para nuevos usuarios
    SendVerificationMail() {
@@ -216,7 +233,8 @@ export class AuthService {
     return window.confirmationResult.confirm(code).then((result: any) => {
       let credentials = auth.PhoneAuthProvider.credential(window.confirmationResult.verificationId,code);
       this.afauth.signInWithCredential(credentials);
-      this.router.navigate(['inicioAdmin']);
+      this.setUser('phone');
+      this.router.navigate(['inicioUser']);
     });
   }
   getUsers(){

@@ -27,7 +27,7 @@ export class NavbarTopUserComponent implements OnInit {
   getEmail(){
     this.auth.getUserLogged().subscribe(res=>{
       this.user = res?.email;
-      this.img  = res?.photoURL 
+      this.img  = res?.photoURL;
       if(this.img!=undefined){
 
       }else{
