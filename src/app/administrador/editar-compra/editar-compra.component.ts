@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Compra } from 'src/app/modelos/compra.model';
 import { PeticionesService } from 'src/app/shared/peticiones.service';
@@ -23,9 +23,10 @@ export class EditarCompraComponent implements OnInit {
   porcentaje!:Observable<number|any>;
   imageUrl:string='../../../assets/img/upload.png';
   myImages:any[]=[];
-  band_select:boolean=false;
+  band_select:boolean=true;
   dirImagen!:string;
-  constructor(private activatedRoute:ActivatedRoute,private peticiones:PeticionesService,private storage:AngularFireStorage) { 
+  constructor(private activatedRoute:ActivatedRoute,private peticiones:PeticionesService,private storage:AngularFireStorage,
+    private router:Router) { 
     this.activatedRoute.params.subscribe(params=>{
      this.id = params['id']; 
       this.getCompra();
@@ -125,8 +126,15 @@ export class EditarCompraComponent implements OnInit {
           this.myForm.reset();
         }
 
-
-   
+        swal.fire({
+         
+          title: "Operación exitosa...",
+          text: "Los datos fueron actualizados ",
+          icon:'success',
+          confirmButtonText:'Entendido'
+         
+        });
+        this.router.navigate(['/consultaCompras']);
   }
   mostrar(event:any) {
     //Muestra la imagen en un previo antes de enviarla a la nube de storage (firabase)

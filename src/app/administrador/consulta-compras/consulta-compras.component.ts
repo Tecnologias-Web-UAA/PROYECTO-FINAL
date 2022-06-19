@@ -31,6 +31,15 @@ export class ConsultaComprasComponent implements OnInit {
           this.sum += this.compras[i].total;
       }
       swal.close();
+    },err=>{
+      
+      swal.close();
+      swal.fire({
+        allowOutsideClick: true,
+        title: "Error...",
+        text: "Algo salio mal...Revisa tu conexion a internet ",
+        confirmButtonText:'Entendido'
+      });
     });
   }
   click(){
