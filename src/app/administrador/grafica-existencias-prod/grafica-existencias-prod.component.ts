@@ -32,7 +32,7 @@ export class GraficaExistenciasProdComponent implements OnInit {
           family: 'Impact',
           size: 40,
         },
-        color: 'rgb(105, 7, 7)'
+        color: 'rgb(23, 139, 255)'
       },
       legend: {//los simbolos de lo que es cada color de la grafica
         labels: {
@@ -49,7 +49,7 @@ export class GraficaExistenciasProdComponent implements OnInit {
     scales: {//para el diseño de los ejes de la grafica
       y: {
           ticks: {//los valore del eje y
-            color: 'rgb(72, 0, 75)',
+            color: 'rgb(23, 113, 203)',
             font: {
               size: 18,
               family: 'Alegrian',
@@ -59,7 +59,7 @@ export class GraficaExistenciasProdComponent implements OnInit {
           title: {
             display: true, //debe de estar en true para que aparezca el titulo
             text:'Cantidad de productos',
-            color: 'rgb(72, 72, 72)',
+            color: 'rgb(7, 42, 106)',
             font: {
               family: 'Verbana',
               size: 18,
@@ -76,7 +76,7 @@ export class GraficaExistenciasProdComponent implements OnInit {
             size: 18,
             weight: 'bold'
           },
-          color: 'rgb(72, 72, 72)'
+          color: 'rgb(22, 72, 180)'
         },
         ticks: {//los valore del eje x
           color: 'rgb(72, 0, 75)',

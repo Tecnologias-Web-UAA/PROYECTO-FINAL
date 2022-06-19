@@ -8,45 +8,41 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column cont">
 
             <!-- Main Content -->
-            <div id="content">
+             <!-- Topbar -->
+             <app-topbar (emitBand)="click()"></app-topbar>
+             <!-- End of Topbar -->
 
-                <!-- Topbar -->
-                <app-topbar (emitBand)="click()"></app-topbar>
-                <!-- End of Topbar -->
-
-                <!-- Begin Page Content -->
-                <div class="container-fluid">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <canvas baseChart
-                                    [datasets]="barChartData"
-                                    [labels]="barChartLabels"
-                                    [plugins]="barChartPlugins"
-                                    [legend]="barChartLegend"
-                                    [options]="barChartOptions">
-                                </canvas>
-                            </div>
-                        </div>
-                    </div>
-             
-                </div>
+             <!-- Begin Page Content -->
+             <div class="container-fluid cont">
+                 <!-- <div class="container"> -->
+                     <div class="row cont" *ngIf="barChartData.length > 0 else nocanvas">
+                         <div class="col-12 col-sm-12 cont">
+                             <canvas width="100%" height="100%" baseChart
+                                 [datasets]="barChartData"
+                                 [labels]="barChartLabels"
+                                 [plugins]="barChartPlugins"
+                                 [legend]="barChartLegend"
+                                 [options]="barChartOptions">
+                             </canvas>
+                         </div>
+                     </div>
+                     <ng-template #nocanvas></ng-template>
                 <!-- /.container-fluid -->
 
             </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            <footer class="sticky-footer bg-white">
+            <!-- <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; ISC 6:b 2022</span>
                     </div>
                 </div>
-            </footer>
+            </footer> -->
             <!-- End of Footer -->
 
         </div>
