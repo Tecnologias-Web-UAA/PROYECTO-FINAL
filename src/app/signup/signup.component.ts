@@ -32,7 +32,9 @@ export class SignupComponent implements OnInit {
     console.log(this.myForm.value);
     let {correo,contrasena}=this.myForm.value;
     this.auth.signUp(correo,contrasena).then((res)=>{
-      console.log("registrado exitosamente");
+      // this.auth.setUser();
+      this.auth.setSignUp(res);
+      console.log(res);
       this.auth.SendVerificationMail();
     });
   }

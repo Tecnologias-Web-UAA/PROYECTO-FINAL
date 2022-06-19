@@ -18,6 +18,7 @@ import { UsuarioModule } from './usuario/usuario.module';
 import { FAQComponent } from './faq/faq.component';
 import { CapitalizacionPipePipe } from './pipe/capitalizacion-pipe.pipe';
 import { LoginMsmComponent } from './login-msm/login-msm.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,13 @@ import { LoginMsmComponent } from './login-msm/login-msm.component';
     FormsModule,
     AdministradorModule,
     HttpClientModule,
-    UsuarioModule
+    UsuarioModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [AccesibilidadService],
   bootstrap: [AppComponent]

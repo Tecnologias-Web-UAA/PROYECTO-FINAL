@@ -18,6 +18,8 @@ declare global {
 export class AuthService {
   userData: any = null; // Almacenar información de usuario
   //   
+  correo:any="";
+  password:any="";
   obj!:User;
   usuarios:User[] = [];
   constructor(private afauth:AngularFireAuth,private router:Router,private accesibilidad:AccesibilidadService
@@ -94,7 +96,11 @@ export class AuthService {
   //para despues consultar todos los usuarios en la cuenta de admin..
   setUser(){
     let auth:any = getAuth();
+    if(auth){
 
+    }else{
+
+    }
     let profile:any = auth.currentUser;
     if (profile !== null) {
      
@@ -126,6 +132,46 @@ export class AuthService {
       
     }
    
+  }
+
+
+
+
+  setSignUp(obj:any){
+    this.signIn(obj.correo,obj.contrasena).then();
+    let auth:any = getAuth();
+    
+    let profile:any = auth.currentUser;
+    if (profile !== null) {
+      
+        // user.providerData.forEach((profile:any) => {
+         this.obj = {
+          'name':profile.displayName,
+          'email': profile.email,
+          'uid': profile.uid,
+          'provider':profile.providerId,
+          'photo':profile.photoURL,
+          'privilegios':'user'
+        };
+        
+        
+        console.log(this.obj)
+        
+      // });
+      let array:any[] = [];
+      this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
+        array = res.myarray;
+        let i = array.findIndex(p=>p.email == this.obj.email);
+        if(i == -1){
+          this.peticiones.altas(this.obj,'altaAlgo/usuario').subscribe(res=>{
+            console.log(res)
+          });
+        }
+      });
+      
+      
+    }
+   this.signOut();
   }
    // Envío de verificación de email para nuevos usuarios
    SendVerificationMail() {

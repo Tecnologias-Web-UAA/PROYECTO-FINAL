@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@angular/service-worker": "~13.2.0",
     "@cristobal-rivera/scripts": "^1.0.0",
     "@firebase/auth": "^0.20.3",
     "@popperjs/core": "^2.11.5",
