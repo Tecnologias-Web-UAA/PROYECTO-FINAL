@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { AccesibilidadService } from '../shared/accesibilidad.service';
 import { AuthService } from '../shared/auth.service';
 import swal from 'sweetalert2';
+import { PeticionesService } from '../shared/peticiones.service';
+import { User } from '../shared/auth.service';
 //https://www.c-sharpcorner.com/article/how-to-use-sweetalert-in-angular10/
 @Component({
   selector: 'app-login',
@@ -12,13 +14,15 @@ import swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
   myForm!:FormGroup;
-  constructor(private auth:AuthService,public accesibilidad:AccesibilidadService,private router:Router) {
+  usuarios:User[]=[];
+  constructor(private auth:AuthService,public accesibilidad:AccesibilidadService,private router:Router,
+    private peticiones:PeticionesService) {
     this.myForm=new FormGroup({
       'correo':new FormControl('',[Validators.required,Validators.email]),
       'contrasena':new FormControl('',[Validators.required,Validators.minLength(7)]),
       'check':new FormControl('')
     });
-    
+     this.auth.getUsers();
    }
 
   ngOnInit(): void {
@@ -29,6 +33,7 @@ export class LoginComponent implements OnInit {
       this.myForm.get('contrasena')?.setValue(datos.contrasena);
        
     }
+   
   }
   logIn(){
     
@@ -43,22 +48,24 @@ export class LoginComponent implements OnInit {
     this.auth.signIn(correo,contrasena).then((res)=>{
       if(res){
         this.accesibilidad.band=false;
-        this.accesibilidad.band=false;
-        this.auth.getUserLogged().subscribe(res=>{
-          let i = this.auth.usuarios.findIndex(p => res?.email == p.email);
-          console.log("i = "+i)
-          if(i!=-1 ){
-            if(this.auth.usuarios[i].privilegios == 'admin'){
+        
+        let i = this.auth.usuarios.findIndex(p => p.email == correo);
+        console.log("correo "+this.auth.usuarios+" i "+i);
+          if(i!=-1){
+            if(this.auth.usuarios[i]?.privilegios=='admin'){
               this.router.navigate(['/inicioAdmin']);
-              
+          
             }else{
               this.router.navigate(['/inicioUser']);
+          
             }
-            
           }
+          
+            
+          
         
           swal.close();
-        });
+    
         if(this.myForm.value.check){
           localStorage.setItem('datosUser',JSON.stringify(this.myForm.value));
         }
@@ -89,23 +96,25 @@ export class LoginComponent implements OnInit {
       
       if (res) {
         this.accesibilidad.band=false;
-        this.auth.getUserLogged().subscribe(res=>{
-          let i = this.auth.usuarios.findIndex(p => res?.email == p.email);
-          console.log("i = "+i)
-          if(i!=-1 ){
-            if(this.auth.usuarios[i].privilegios == 'admin'){
-              this.router.navigate(['/inicioAdmin']);
-              
-            }else{
-              this.router.navigate(['/inicioUser']);
-            }
-            
+        
+        let i = this.auth.usuarios.findIndex(p => p.email == res.user.email);
+        console.log("correo "+this.auth.usuarios+" i "+i);
+         
+        if(i!=-1){
+          if(this.auth.usuarios[i]?.privilegios=='admin'){
+            this.router.navigate(['/inicioAdmin']);
+        
+          }else{
+            this.router.navigate(['/inicioUser']);
+        
           }
+        }
+      }
         
           swal.close();
-        });
+       
         
-      }
+      
     })
     .catch(err=>{
       swal.close();

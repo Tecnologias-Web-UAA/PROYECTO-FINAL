@@ -19,7 +19,7 @@ export class AuthService {
   userData: any = null; // Almacenar información de usuario
   //   
   obj!:User;
-  usuarios:User[]=[];
+  usuarios:User[] = [];
   constructor(private afauth:AngularFireAuth,private router:Router,private accesibilidad:AccesibilidadService
     ,public ngZone: NgZone,private peticiones:PeticionesService) { 
 
@@ -39,9 +39,7 @@ export class AuthService {
         }
       });
 
-      this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
-        this.usuarios = res.myarray;
-      })
+     
     }
 
   signIn(correo:string,contrasena:string){
@@ -167,8 +165,15 @@ export class AuthService {
       this.router.navigate(['inicioAdmin']);
     });
   }
+  getUsers(){
+    this.peticiones.consultaTodo('consultaTodo','usuario').subscribe((res:any)=>{
+      this.usuarios = res.myarray;
+      
+   });
+   
+  }
 }
-interface User{
+export interface User{
   name:string;
   email:string;
   uid:string;
