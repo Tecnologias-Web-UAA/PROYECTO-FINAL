@@ -23,7 +23,7 @@
                   <h2 style="text-align: center;">Compras Realizadas</h2>
                   <div class="card p-3 text-justify">
                     <blockquote class="blockquote mb-0">
-                      <p>Inversion en compras: {{sum}}</p>
+                      <p>Inversion en compras: ${{sum | number: '.0-3'}}</p>
                       <footer class="blockquote-footer">
                         <small class="text-muted">
                            <cite title="Source Title"></cite>
@@ -40,7 +40,7 @@
                         <h5>Adquiridos: {{compra.cantidad}}</h5>
                         <h5>Precio Unitario: ${{compra.precio_unitario | number: '.0-3'}}</h5>
                         <h5>Pago: ${{compra.total | number: '.0-3'}}</h5>
-                        <h5 class="text-right">Fecha: {{compra.fecha}}</h5>
+                        <h5 class="text-justify">Fecha: {{compra.fecha}}</h5>
                         <p class="card-text text-justify"> {{compra.descripcion}}</p>
                         </div>
                         <hr class="sidebar-divider my-0">
