@@ -1,12 +1,10 @@
-
 <body id="page-top">
 
     <!-- Page Wrapper -->
     <div id="wrapper">
 
         <!-- Sidebar -->
-      <!--  <app-navbar-user  [band]="band"></app-navbar-user> -->
-      <app-navbar-user [band]="band"></app-navbar-user>
+        <app-navbar-user [band]="band"></app-navbar-user>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -17,34 +15,43 @@
 
                 <!-- Topbar -->
                 <app-navbar-top-user (emitBand)="click()"></app-navbar-top-user>
-
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
-                <div class="container-fluid cent">
-                    <h2 style="text-align: center;">Productos De Electronica Halcón</h2>
-                    <div class="row">
-                        <div class="col-12 card-qr">
-                            <div class="contenedorProd">
-                                <div class="prod">
-                                    <img src="{{product.imagen}}" class="card-img-top" alt="...">
-                                    <h2 class="card-title">{{product.nombre | capitalizado:true}}</h2>
-                                    <h5>Precio: ${{product.precio | number: '.0-3'}}</h5>
-                                </div>
-                            </div>
+                <div class="row">
+                    <div class="col-4 col-sm-6 col-md-8 col-lg-12" *ngIf="comprasHechas.length > 0 else nopeticion">
+                        
+                         
+                          
+                        <table class="table">
+                            <thead class="table-primary">
+                                <tr>
+                                    <th scope="col">ID Ticket</th>
+                                    <th scope="col">Producto</th>
+                                    <th scope="col">Origen del producto</th>
+                                    <th scope="col">Bandera del Pais de origen</th>
+                                    <th scope="col">Costo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let compra of comprasHechas" class="table-success">
+                               
+                                <td>{{compra.id}}</td>
+                                <td><img src="{{compra.imgProducto}}" alt="" width="100px"></td>
+                                <td>{{compra.nombrePais}}</td>
+                                <td>{{compra.paisOrigen}}</td>
+                                <td>{{compra.costo}}</td>
+                              </tr>
+                              
+                            </tbody>
+                        </table>
+                        <div class="gasto">
+                            <h4>Total gasto en compras = ${{ saldo | number: '.0-3'}}</h4>
                         </div>
                     </div>
-                    <hr class="sidebar-divider my-0">
-                    <div class="row cent" >
-                        <div class="col-12">
-                            <div class="qr">
-                                <qr-code [size]="size" [background]="fondo" [foreground]="colorqr" [value]="qrInformacion"></qr-code>
-                            </div>
-                        </div>
-                    </div>
-                    <hr>
-                        <a class="nav-link back" [routerLink]="['/compras']">Regresar</a>
-                    <hr>
+                    <ng-template #nopeticion>
+                        <h3>No hay compras aun en este Usuario, dale un vistazo en nuestra sección de compras...</h3>
+                    </ng-template>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -55,9 +62,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-
                         <span>Copyright &copy; ISC 6:B 2022 Equipo POLO</span>
-
                     </div>
                 </div>
             </footer>

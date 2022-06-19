@@ -19,15 +19,15 @@ export class GenerarQrComponent implements OnInit {
   consulta!:Producto;
   alter!:any;
   informacion:string="";
-  nombre = 'jUAN carlos rodriguez mares';
   band:boolean=false;
   nombreprod:string="";
   product!:Producto;
   id!:any;
+
   constructor(private activatedRoute:ActivatedRoute, private peticionesServicio:PeticionesService) {
     this.activatedRoute.params.subscribe(params=>{/**nombre/:id/:cantidad/:precio/:descripcion/:img/ */
       //console.log(params['nombre'],params['id'],params['img'],params['cantidad'],params['precio'],params['descripcion']);
-      this.qrInformacion=`Nombre del producto:${params['nombre']}\nPrecio: $${params['precio']}\n\nDescripcion:\n${params['descripcion']}`;
+      this.qrInformacion=`Nombre del producto:${params['nombre']}\nPrecio: $${params['precio']}\n\nDescripcion:\n${params['descripcion']}\n\nFelicidades tienes el ${Math.round(Math.random() * (40 - 5) + 5)}% de descuento con este código QR`;
       this.nombreprod = params['nombre'];
       this.id= params['id'];
    });
