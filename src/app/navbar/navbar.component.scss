@@ -45,6 +45,14 @@ li a{
 }
 h2{
     color:white;
-    text-shadow: 2px 1px 5px;
     font-style: oblique;
+    font-family: 'Affichage' !important;
+    font-size: 3em ;
+}
+@media only screen and(max-width:987px){
+    .collapse .navbar-nav li a,.form-inline,.dropdown-menu a{
+            display:block !important;
+            text-align: center !important;
+            
+    }
 }
