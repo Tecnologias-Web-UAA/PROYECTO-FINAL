@@ -53,11 +53,6 @@ export class ComprasComponent implements OnInit {
       text: "Espere por favor",
     });
     swal.showLoading();
-    this.peticionesServicio.comprarProducto(id).subscribe((resul:any) => {
-      this.msgCompra = resul.msg;
-      this.compraProducto = resul.producto
-      swal.close();
-    });
 
     this.addVen(id);
   }
