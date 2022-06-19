@@ -10,13 +10,21 @@ body{
     font-style: oblique;
 
 }
+.tar{
+    background: rgba(60, 142, 250, 0.673) !important;
+}
 .lema{
-    border-left: 5px dashed  rgb(66, 199, 155); 
-    border-right: 5px dashed rgb(66, 199, 155);
-    border-top: 5px dashed rgb(66, 199, 155);
-    border-bottom: 5px dashed rgb(66, 199, 155);
-    
+    border: 5px dashed rgb(24, 3, 183);
 }
 .card-text{
     text-align: justify;
+}
+.lema-text{
+    font-family: 'Bridge';
+    font-size: 25px;
+    color: rgb(0, 25, 162);
+}
+small{
+    color: wheat !important;
+    text-shadow: 5px 5px 5px white !important;
 }
