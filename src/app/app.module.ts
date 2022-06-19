@@ -19,6 +19,7 @@ import { FAQComponent } from './faq/faq.component';
 import { CapitalizacionPipePipe } from './pipe/capitalizacion-pipe.pipe';
 import { LoginMsmComponent } from './login-msm/login-msm.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { keyfire } from './firebasekey';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(keyfire.firebaseConfig),
     FormsModule,
     AdministradorModule,
     HttpClientModule,
