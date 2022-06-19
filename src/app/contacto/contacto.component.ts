@@ -3,7 +3,7 @@ import { AccesibilidadService } from '../shared/accesibilidad.service';
 import { Observable } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http'; 
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
@@ -24,7 +24,14 @@ export class ContactoComponent implements OnInit {
   }
 
   envio(){
-
+    swal.fire({
+      allowOutsideClick: true,
+      title: "Enviado...",
+      icon:'success',
+      text: "El correo se envio exitosamente",
+      confirmButtonText:'Entendido'
+     
+    }); 
     let params={
       email:this.datos.value.correo,
       asunto:this.datos.value.asunto,
@@ -33,8 +40,13 @@ export class ContactoComponent implements OnInit {
     console.log(params)
     
     this.httpclien.post('http://localhost:3000/envio',params).subscribe(resp=>{
-    console.log(resp)
-    })
+      
+     console.log(resp);
+      
+    },err=>{
+      
+    });
+    this.datos.reset();
   }
 }
 
